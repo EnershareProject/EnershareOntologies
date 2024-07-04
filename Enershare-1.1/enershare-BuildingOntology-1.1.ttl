@@ -1,0 +1,389 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix sch: <https://schema.org/>.
+@prefix fiware:<https://uri.fiware.org/ns/data-models#>.
+@prefix ener-rsrc:<https://w3id.org/enershare/energyresource/>.
+@prefix ener-bldg: <https://w3id.org/enershare/building/>.
+@base <https://w3id.org/enershare/building/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-bldg:BuildingyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Building Ontology"@en ;
+  dcterms:description "The Enershare Building vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-02-28"^^xsd:date ;
+  dcterms:modified "2024-05-30"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE";
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-bldg";
+  vann:preferredNamespaceUri <https://w3id.org/enershare/building/> ;  
+  owl:versionIRI <https://w3id.org/enershare/BuildingOntology-1.1> ;
+  owl:inmport <https://w3id.org/seas/BuildingOntology>;
+  owl:versionInfo "v1.0".
+
+
+### https://w3id.org/enershare/building/SingleFamilyHouse
+ener-bldg:SingleFamilyHouse a owl:Class ;
+  rdfs:label "Single Family House"@en ;
+  rdfs:comment """Single Family House is OneDwellingBuilding that is detached house and occuppied by a Single Family"""@en ;
+  rdfs:subClassOf seas:OneDwellingBuilding;  
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology .
+
+### https://w3id.org/enershare/building/MultiDwellingBuilding
+ener-bldg:MultiDwellingBuilding a owl:Class ;
+  rdfs:label "MultiDwelling Building"@en ;
+  rdfs:comment """MultiDwelling Building is a residential building that represents a multiple separate housing units for residential inhabitants are contained 
+                  within one building or several buildings within one complex (source: Wikipedia)"""@en ;
+  rdfs:subClassOf seas:ResidentalBuilding;  
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology .
+
+### https://w3id.org/enershare/building/Apartment
+ener-bldg:Apartment a owl:Class ;
+  skos:altLabel "Flat"@en;
+  rdfs:label "Apartment"@en ;
+  rdfs:comment """An apartment (North American English), flat (British English, Indian English, South African English)[a], or unit (Australian English) 
+                  is a self-contained housing unit (a type of residential real estate) that occupies part of a building, generally on a single storey. (source: Wikipedia) """@en ;
+  rdfs:subClassOf seas:ResidentalBuilding;  
+  rdfs:subClassOf [ a owl:Restriction ; owl:onProperty seas:subZoneOf ; owl:someValuesFrom ener-bldg:MultiDwellingBuilding] ;
+  vs:term_status "testing";
+  rdfs:seeAlso fiware:documentation;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology .
+  
+### https://w3id.org/enershare/building/EnergyAuditDocument
+ener-bldg:EnergyAuditDocument a owl:Class ;
+  rdfs:label "Energy Audit Document"@en ;
+  rdfs:comment """Energy Audit Document is a digital document that includ the energy audit of the building"""@en ;
+  rdfs:subClassOf sch:DigitalDocument;  
+  vs:term_status "testing";
+  rdfs:seeAlso fiware:documentation;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology .
+
+### https://w3id.org/enershare/building/hasEnergyAuditDocument
+ener-bldg:hasEnergyAuditDocument a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Energy Audit Document"@en ;
+  rdfs:comment """has Energy Audit Document relates the Building to it Energy audit Document"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-bldg:EnergyAuditDocument;
+  rdfs:seeAlso fiware:documentation;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasMansard
+ener-bldg:hasMansard a owl:ObjectProperty, owl:Property;
+  rdfs:label "has Mansard"@en ;
+  rdfs:comment """ has Mansard relates the building to the boolean to indicate if the building has mansard or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasRoofFloor
+ener-bldg:hasRoofFloor a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Roof Floor"@en ;
+  rdfs:comment """has Roof Floor relates the building to the boolean to indicate if the building has Roof floor or not """@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  rdfs:seeAlso fiware:rooftop;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasUndergroundFloor 
+ener-bldg:hasUndergroundFloor a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Underground Floor"@en ;
+  rdfs:comment """has Underground Floor relates the building to the boolean to indicate if the building has Underground Floor or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  rdfs:seeAlso fiware:floorsBelowGround;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasWaterHeatingSystem
+ener-bldg:hasWaterHeatingSystem a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Water Heating System"@en ;
+  rdfs:comment """has Water Heating System relates the building to the boolean to indicate if the building has Water Heating System or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasHeatInstallationSystem
+ener-bldg:hasHeatInstallationSystem a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Heat Installation System"@en ;
+  rdfs:comment """has Heat Installation System relates the building to the boolean to indicate if the building has Heat Installation System or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasCarryingOutConstructionWorks
+ener-bldg:hasCarryingOutConstructionWorks a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Carrying Out Construction Works"@en ;
+  rdfs:comment """has Carrying Out Construction Works relates the building to the boolean to indicate if the building has Carrying Out Construction Works or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasReconstructionOfEnergeeringSystems 
+ener-bldg:hasReconstructionOfEnergeeringSystems a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Reconstruction Of Energeering Systems"@en ;
+  rdfs:comment """has Reconstruction Of Energeering Systems relates the building to the boolean to indicate if the building has Reconstruction Of Energeering Systems or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/isAlmostZeroEnergyBuilding
+ener-bldg:isAlmostZeroEnergyBuilding a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "is Almost Zero Energy Building"@en ;
+  rdfs:comment """is Almost Zero Energy Building relates the building to the boolean to indicate if the building is Almost Zero Energy Building or not"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasFirstEnergyResourceForHeating
+ener-bldg:hasFirstEnergyResourceForHeating a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has First Energy Resource For Heating"@en ;
+  rdfs:comment """has First Energy Resource For Heating relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasSecondEnergyResourceForHeating 
+ener-bldg:hasSecondEnergyResourceForHeating a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has Second Energy Resource For Heating"@en ;
+  rdfs:comment """has Second Energy Resource For Heating relates the building to it Energy Resource Type """@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasFirstEnergyResourceForCooling
+ener-bldg:hasFirstEnergyResourceForCooling a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has First Energy Resource For Cooling"@en ;
+  rdfs:comment """has First Energy Resource For Cooling relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasSecondEnergyResourceForCooling 
+ener-bldg:hasSecondEnergyResourceForCooling a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has Second Energy Resource For Cooling"@en ;
+  rdfs:comment """has Second Energy Resource For Cooling relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasFirstEnergyResourceForHotWater
+ener-bldg:hasFirstEnergyResourceForHotWater a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has First Energy Resource For Hot Water"@en ;
+  rdfs:comment """has First Energy Resource For Hot Water relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasSecondEnergyResourceForHotWater 
+ener-bldg:hasSecondEnergyResourceForHotWater a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has Second Energy Resource For Hot Water"@en ;
+  rdfs:comment """has Second Energy Resource For Hot Water relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasEnergyResourceForVentilation
+ener-bldg:hasEnergyResourceForVentilation a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label  "has Second Energy Resource For Hot Water"@en ;
+  rdfs:comment """has Second Energy Resource For Hot Water relates the building to it Energy Resource Type"""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range ener-rsrc:EnergyResourceType ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+
+### https://w3id.org/enershare/building/hasVentilationEfficiency
+ener-bldg:hasVentilationEfficiency a owl:DatatypeProperty ;
+  rdfs:label  "has Ventilation Efficiency"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:Building;
+  rdfs:range seas:EfficiencyProperty;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+
+### https://w3id.org/enershare/building/hasNumberOfResidents
+ener-bldg:hasNumberOfResidents a owl:DatatypeProperty ;
+  rdfs:label  "has Number Of Residents"@en ;
+  rdfs:comment """Number Of People living in the building"""@en ;
+  rdfs:domain seas:Building;
+  rdfs:range xsd:integer ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+
+### https://w3id.org/enershare/building/hasNumberOfFloors
+ener-bldg:hasNumberOfFloors a owl:DatatypeProperty ;
+  rdfs:label  "has Number Of Floors"@en ;
+  rdfs:comment """Number Of Floors of a building"""@en ;
+  rdfs:domain seas:Building;
+  rdfs:range xsd:integer ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+
+### https://w3id.org/enershare/building/hasNumberOfFloors
+ener-bldg:hasNumberOfBuildings a owl:DatatypeProperty ;
+  rdfs:label  "has Number Of Buildings"@en ;
+  rdfs:comment """Number Of Buildings in a zone"""@en ;
+  rdfs:range xsd:integer ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+
+
+### https://w3id.org/enershare/building/hasNumberOfUndergroundFloors
+ener-bldg:hasNumberOfUndergroundFloors a owl:DatatypeProperty ;
+  rdfs:label  "has Number Of Underground Floors"@en ;
+  rdfs:comment """Number Of Underground Floors of a building"""@en ;
+  rdfs:domain seas:Building;
+  rdfs:range xsd:integer ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.  
+
+
+#####################################
+# Overall heat transfer coefficient # 
+#####################################
+
+### https://w3id.org/enershare/building/OverallHeatTransferCoefficientProperty
+ener-bldg:OverallHeatTransferCoefficientProperty a owl:Class ;
+  rdfs:label "Overall heat transfer coefficient Property"@en ;
+  rdfs:comment """The overall heat transfer coefficient {displaystyle U} U is a measure of the overall ability of a series of conductive and 
+                  convective barriers to transfer heat. It is commonly applied to the calculation of heat transfer in heat exchangers, 
+                  but can be applied equally well to other problems.(source:wikipedia)"""@en ;
+  rdfs:subClassOf seas:Property ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology. 
+
+### https://w3id.org/enershare/building/OverallHeatTransferCoefficientEvaluation
+ener-bldg:OverallHeatTransferCoefficientEvaluation a owl:Class ;
+  rdfs:label "Overall heat transfer coefficient Evaluation"@en ;
+  rdfs:comment """The class Overall heat transfer coefficient evaluation for Overall heat transfer coefficient properties"""@en ;
+  rdfs:subClassOf seas:Evaluation ;
+  rdfs:subClassOf [ owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-bldg:OverallHeatTransferCoefficientProperty ] ;
+  owl:equivalentClass [ owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-bldg:OverallHeatTransferCoefficientProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.
+
+### https://w3id.org/enershare/building/hasOverallHeatTransferCoefficient
+ener-bldg:hasOverallHeatTransferCoefficient a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "overall heat transfer coefficient"@en ;
+  rdfs:comment """Links the building to its overall heat transfer coefficient property."""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:domain seas:Building ;
+  rdfs:range ener-bldg:OverallHeatTransferCoefficientProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology. 
+
+## https://w3id.org/enershare/building/hasOverallHeatTransferCoefficientThroughVerticalWall
+ener-bldg:hasOverallHeatTransferCoefficientThroughVerticalWall a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "overall heat transfer coefficient through vertical wall"@en ;
+  rdfs:comment """Overall heat transfer coefficient in W/m²K. It represents the heat flux transfer through a wall, 
+                  normalized by the wall surface and the difference of temperature across the wall, at steady state."""@en ;
+  rdfs:subPropertyOf ener-bldg:hasOverallHeatTransferCoefficient ;
+  rdfs:domain seas:Building ;
+  rdfs:range ener-bldg:OverallHeatTransferCoefficientProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology. 
+
+## https://w3id.org/enershare/building/hasOverallHeatTransferCoefficientThroughRoof
+ener-bldg:hasOverallHeatTransferCoefficientThroughRoof a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "overall heat transfer coefficient through roof"@en ;
+  rdfs:comment """Overall heat transfer coefficient in W/m²K. It represents the heat flux transfer through a roof, 
+                normalized by the roof surface and the difference of temperature across the roof, at steady state.."""@en ;
+  rdfs:subPropertyOf ener-bldg:hasOverallHeatTransferCoefficient ;
+  rdfs:domain seas:Building ;
+  rdfs:range ener-bldg:OverallHeatTransferCoefficientProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-bldg:BuildingOntology. 
+
+## https://w3id.org/enershare/building/hasOverallHeatTransferCoefficientThroughFloor
+ener-bldg:hasOverallHeatTransferCoefficientThroughFloor a owl:ObjectProperty , owl:FunctionalProperty ;
+rdfs:label "overall heat transfer coefficient through floor"@en ;
+rdfs:comment """Overall heat transfer coefficient in W/m²K. It represents the heat flux transfer through a floor, 
+              normalized by the floor surface and the difference of temperature across the floor, at steady state."""@en ;
+rdfs:subPropertyOf ener-bldg:hasOverallHeatTransferCoefficient ;
+rdfs:domain seas:Building ;
+rdfs:range ener-bldg:OverallHeatTransferCoefficientProperty ;
+vs:term_status "testing" ;
+rdfs:isDefinedBy ener-bldg:BuildingOntology. 
+
+## https://w3id.org/enershare/building/hasOverallHeatTransferCoefficientThroughOpening
+ener-bldg:hasOverallHeatTransferCoefficientThroughOpening a owl:ObjectProperty , owl:FunctionalProperty ;
+rdfs:label "overall heat transfer coefficient through opening"@en ;
+rdfs:comment """Overall heat transfer coefficient in W/m²K. It represents the heat flux transfer through an opening, 
+              normalized by the opening surface and the difference of temperature across the opening, at steady state."""@en ;
+rdfs:subPropertyOf ener-bldg:hasOverallHeatTransferCoefficient ;
+rdfs:domain seas:Building ;
+rdfs:range ener-bldg:OverallHeatTransferCoefficientProperty ;
+vs:term_status "testing" ;
+rdfs:isDefinedBy ener-bldg:BuildingOntology. 

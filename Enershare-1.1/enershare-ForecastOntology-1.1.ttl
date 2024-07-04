@@ -1,0 +1,437 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vsso:<https://www.w3.org/Submission/vsso/#>.
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-prop: <https://w3id.org/enershare/property/>.
+@prefix ener-fc: <https://w3id.org/enershare/forecast/>.
+@base <https://w3id.org/enershare/forecast/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-fc:ForecastOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Forecast Ontology"@en ;
+  dcterms:description "The Enershare Forecast vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-01-22"^^xsd:date ;
+  dcterms:modified "2024-06-03"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-fc" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/forecast/> ;  
+  owl:versionIRI <https://w3id.org/enershare/ForecastOntology-1.1> ;
+  owl:versionInfo "v1.0" .
+
+
+
+
+
+### https://w3id.org/enershare/forecast/hasForecastOfTotalElectricEnergyLoadProperty
+ener-fc:hasForecastOfTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Total Electric Energy Load Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasForecastOfElectricEnergyNetLoadProperty
+ener-fc:hasForecastOfElectricEnergyNetLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Total Electric Energy Net Load Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .  
+
+### https://w3id.org/enershare/forecast/hasWeekAheadForecastOfMinimumTotalElectricEnergyLoadProperty
+ener-fc:hasWeekAheadForecastOfMinimumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Week Ahead Forecast Of Minimum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology . 
+
+### https://w3id.org/enershare/forecast/hasDayAheadForecastOfMaximumTotalElectricEnergyLoadProperty
+ener-fc:hasDayAheadForecastOfMaximumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Day Ahead forecast of Maximum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its Day Ahead forecast of Maximum total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasWeekAheadForecastOfMaximumTotalElectricEnergyLoadProperty
+ener-fc:hasWeekAheadForecastOfMaximumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Week Ahead Forecast Of Maximum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .  
+
+### https://w3id.org/enershare/forecast/hasMonthAheadForecastOfMinimumTotalElectricEnergyLoadProperty
+ener-fc:hasMonthAheadForecastOfMinimumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Month Ahead Forecast Of Minimum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology . 
+
+### https://w3id.org/enershare/forecast/hasMonthAheadForecastOfMaximumTotalElectricEnergyLoadProperty
+ener-fc:hasMonthAheadForecastOfMaximumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Month Ahead Forecast Of Maximum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .   
+
+### https://w3id.org/enershare/forecast/hasYearAheadForecastOfMinimumTotalElectricEnergyLoadProperty
+ener-fc:hasYearAheadForecastOfMinimumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Year Ahead Forecast Of Minimum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology . 
+
+### https://w3id.org/enershare/forecast/hasYearAheadForecastOfMaximumTotalElectricEnergyLoadProperty
+ener-fc:hasYearAheadForecastOfMaximumTotalElectricEnergyLoadProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Year Ahead Forecast Of Maximum total electric energy Load property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of total electric energy load  property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfTotalElectricEnergyLoadProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfElectricEnergyLoadProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology . 
+
+### https://w3id.org/enershare/forecast/ForecastOfEnergyProductionProperty
+ener-fc:ForecastOfEnergyProductionProperty a owl:Class ;
+  rdfs:label "Forecast Of Energy Production Property"@en ;
+  rdfs:comment "The class for forecast of energy production properties"@en ;
+  rdfs:subClassOf plt:ForecastOfEnergyProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom plt:EnergyProductionProperty ] ;
+ # rdfs:subClassOf[ owl:onProperty pep:madeBy ; owl:someValuesFrom plt:ForecasterOfElectricEnergyProperty ] 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+
+plt:ForecastOfPhotovoltaicEnergyProductionProperty rdfs:subClassOf ener-fc:ForecastOfEnergyProductionProperty.
+
+### https://w3id.org/enershare/forecast/hasForecastOfEnergyProperty
+ener-fc:hasForecastOfEnergyProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Energy Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of energy property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfProperty  ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfEnergyProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasForecastOfEnergyProductionProperty
+ener-fc:hasForecastOfEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of energy production property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfEnergyProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasDayAheadForecastOfEnergyProductionProperty
+ener-fc:hasDayAheadForecastOfEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Day Ahead Forecast Of Energy Production Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of energy production property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfEnergyProductionProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasIntradayForecastOfEnergyProductionProperty
+ener-fc:hasIntradayForecastOfEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Intraday Forecast Of Energy Production Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its forecast of energy production property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfEnergyProductionProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology.
+
+### https://w3id.org/enershare/forecast/ForecastOfWindEnergyProductionProperty
+ener-fc:ForecastOfWindEnergyProductionProperty a owl:Class ;
+  rdfs:label "Forecast Of Wind Energy Production Property"@en ;
+  rdfs:comment "The class for forecast of wind energy production properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfEnergyProductionProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:WindEnergyProductionProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasForecastOfWindEnergyProductionProperty
+ener-fc:hasForecastOfWindEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Wind Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its  Forecast Of Wind Energy Production Property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfEnergyProductionProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfWindEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasIntradayForecastOfWindEnergyProductionProperty
+ener-fc:hasIntradayForecastOfWindEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Intraday Forecast Of Wind Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its Intraday Forecast Of Wind Energy Production Property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfWindEnergyProductionProperty, ener-fc:hasIntradayForecastOfEnergyProductionProperty;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfWindEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasDayAheadForecastOfWindEnergyProductionProperty
+ener-fc:hasDayAheadForecastOfWindEnergyProductionProperty  a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Day Ahead Forecast Of Wind Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its Day Ahead Forecast Of Wind Energy Production Property."""@en ;
+  rdfs:subPropertyOf ener-fc:hasForecastOfWindEnergyProductionProperty, ener-fc:hasDayAheadForecastOfEnergyProductionProperty ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfWindEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+
+### https://w3id.org/enershare/forecast/ForecastOfDemandProperty
+ener-fc:ForecastOfDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of  Demand Property"@en ;
+  rdfs:comment "The class for forecast of  energy Demand properties"@en ;
+  rdfs:subClassOf seas:Forecast; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:DemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfEnergyDemandProperty
+ener-fc:ForecastOfEnergyDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of  Energy Demand Property"@en ;
+  rdfs:comment "The class for forecast of  energy Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfDemandProperty ; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:EnergyDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfElectricEnergyDemandProperty
+ener-fc:ForecastOfElectricEnergyDemandProperty a owl:Class ;
+  skos:altLabel "ForecastOfEnergyLoadDemandProperty" ;
+  rdfs:label "Forecast Of Electric Energy Demand Property"@en ;
+  rdfs:comment "The class for forecast of electric energy Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfEnergyDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:ElectricEnergyDemandProperty  ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfHeatingEnergyDemandProperty
+ener-fc:ForecastOfHeatingEnergyDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Heating Energy Demand Property"@en ;
+  rdfs:comment "The class for forecast of  Heating Energy Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfEnergyDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:HeatingEnergyDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .  
+
+### https://w3id.org/enershare/forecast/ForecastOfHeatingEnergyDemandProperty
+ener-fc:ForecastOfCoolingEnergyDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Cooling Energy Demand Property"@en ;
+  rdfs:comment "The class for forecast of  Cooling Energy Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfEnergyDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:CoolingEnergyDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .  
+
+### https://w3id.org/enershare/forecast/ForecastOfHeatingEnergyDemandProperty
+ener-fc:ForecastOfHeatingCoolingEnergyDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Heating Cooling Energy Demand Property"@en ;
+  rdfs:comment "The class for forecast of  Heating Cooling Energy Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfEnergyDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:HeatingCoolingEnergyDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfHydrogenDemandProperty
+ener-fc:ForecastOfHydrogenDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Hydrogen Demand Property"@en ;
+  rdfs:comment "The class for forecast of Hydrogen Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:HydrogenDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfNaturalGasDemandProperty
+ener-fc:ForecastOfNaturalGasDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Natural Gas Demand Property"@en ;
+  rdfs:comment "The class for forecast of Natural Gas Demand properties"@en ;
+  rdfs:subClassOf ener-fc:ForecastOfDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:NaturalGasDemandProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/ForecastOfWaterDemandProperty
+ener-fc:ForecastOfWaterDemandProperty a owl:Class ;
+  rdfs:label "Forecast Of Water Demand Property"@en ;
+  rdfs:comment "The class for forecast of water demand properties"@en ;
+  rdfs:subClassOf plt:ForecastOfDemandProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom ener-prop:WaterDemandProperty] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasIntradayForecastOfPhotovoltaicEnergyProductionProperty
+ener-fc:hasIntradayForecastOfPhotovoltaicEnergyProductionProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Intraday Forecast Of Photovoltaic Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its Intraday Forecast Of Photovoltaic Energy Production Property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfPhotovoltaicEnergyProductionProperty, ener-fc:hasIntradayForecastOfEnergyProductionProperty;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfPhotovoltaicEnergyProductionProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasDayAheadForecastOfPhotovoltaicEnergyProductionProperty
+ener-fc:hasDayAheadForecastOfPhotovoltaicEnergyProductionProperty   a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Day Ahead Forecast Of Photovoltaic Energy Production Property "@en ;
+  rdfs:comment """Links Feature Of Interest with  its Day Ahead Forecast Of Photovoltaic Energy Production Property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfPhotovoltaicEnergyProductionProperty , ener-fc:hasDayAheadForecastOfEnergyProductionProperty;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range  plt:ForecastOfPhotovoltaicEnergyProductionProperty ;  ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+plt:hasForecastOfPhotovoltaicEnergyProductionProperty  rdfs:subPropertyOf ener-fc:hasForecastOfEnergyProductionProperty.
+
+### https://w3id.org/enershare/forecast/hasDayAheadForecastOfPriceProperty
+ener-fc:hasDayAheadForecastOfPriceProperty a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Day Ahead forecast of price property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its Day Ahead forecast of price property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfPriceProperty  ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range plt:ForecastOfPriceProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology.
+
+### https://w3id.org/enershare/forecast/ForecastOfBuyingPriceProperty
+ener-fc:ForecastOfBuyingPriceProperty a owl:Class ;
+  rdfs:label "Forecast Of Buying Price Property"@en ;
+  rdfs:comment "The class for forecast of buying price properties"@en ;
+  rdfs:subClassOf plt:ForecastOfPriceProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom seas:BuyingPriceProperty] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasForecastOfBuyingPriceProperty
+ener-fc:hasForecastOfBuyingPriceProperty a owl:ObjectProperty ;
+  rdfs:label "has forecast of Buying price Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  its Buying  forecast of price property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfPriceProperty  ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfBuyingPriceProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology.  
+
+### https://w3id.org/enershare/forecast/ForecastOfSellingPriceProperty
+ener-fc:ForecastOfSellingPriceProperty a owl:Class ;
+  rdfs:label "Forecast Of Selling Price Property"@en ;
+  rdfs:comment "The class for forecast of selling price properties"@en ;
+  rdfs:subClassOf plt:ForecastOfPriceProperty; 
+  rdfs:subClassOf[ owl:onProperty seas:forecastsProperty ; owl:someValuesFrom seas:SellingPriceProperty] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+### https://w3id.org/enershare/forecast/hasForecastOfSellingPriceProperty
+ener-fc:hasForecastOfSellingPriceProperty a owl:ObjectProperty ;
+  rdfs:label "has forecast of selling price Property"@en ;
+  rdfs:comment """Links Feature Of Interest with  itsselling  forecast of price property."""@en ;
+  rdfs:subPropertyOf plt:hasForecastOfPriceProperty  ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-fc:ForecastOfSellingPriceProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology.
+
+
+###  https://w3id.org/enershare/flexibility/ForecastOfFlexibilityProfile
+ener-fc:ForecastOfFlexibilityProfile  a owl:Class ;
+  rdfs:label "Forecast Of Flexibility Profile"@en ;
+  rdfs:comment "The class for forecast of Flexibility Profile"@en ;
+  rdfs:subClassOf seas:Forecast; 
+  rdfs:subClassOf[ owl:onProperty seas:forecasts ; owl:someValuesFrom ener-flex:FlexibilityProfile] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology .
+
+###  https://w3id.org/enershare/flexibility/hasForecastOfFlexibilityProfile
+ener-fc:hasForecastOfFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ener-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fc:ForecastingOntology.
+
+#######################################
+#   reused concepts                   #
+####################################### 
+
+seas:FeatureOfInterest a owl:Class. 
+plt:ForecastOfElectricEnergyProperty a owl:Class. 
+plt:ForecastOfElectricEnergyLoadProperty  a owl:Class. 
+plt:ForecastOfEnergyProperty a owl:Class. 
+plt:ForecastOfPriceProperty  a owl:Class. 
+plt:ForecastOfPhotovoltaicEnergyProductionProperty  a owl:Class. 
+
+
+#######################################
+#   reused relations                  #
+#######################################
+seas:forecastsProperty a owl:ObjectProperty.
+plt:hasForecastOfProperty a owl:ObjectProperty.
+plt:hasForecastOfElectricEnergyLoadProperty a owl:ObjectProperty.
+plt:hasForecastOfPriceProperty a owl:ObjectProperty.
+plt:hasForecastOfPhotovoltaicEnergyProductionProperty  a owl:ObjectProperty.

@@ -1,0 +1,201 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix ic-flex: <http://ontology.tno.nl/interconnect/flexibility/>.
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ener: <https://w3id.org/enershare/>.
+
+
+@prefix ener-flex: <https://w3id.org/enershare/flexibility/>.
+
+@base <https://w3id.org/enershare/flexibility/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-flex:FlexibilityOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Flexibility Ontology"@en ;
+  dcterms:description "The Enershare Flexibility vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-03-01"^^xsd:date ;
+  dcterms:modified "2024-04-24"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-flex" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/Flexibility/> ;  
+  owl:versionIRI <https://w3id.org/enershare/FlexibilityOntology-1.1> ;
+  owl:versionInfo "v1.0" .
+
+
+###  https://w3id.org/enershare/flexibility/ChargingProfile
+ener-flex:ChargingProfile a owl:Class ;
+  rdfs:label "Charging Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Profile;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology .
+
+###  https://w3id.org/enershare/flexibility/hasChargingProfile
+ener-flex:hasChargingProfile a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Charging Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:ElectricVehicle;
+  rdfs:range ener-flex:ChargingProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.   
+
+###  https://w3id.org/enershare/flexibility/PreferenceProfile
+ener-flex:PreferenceProfile  a owl:Class ;
+  rdfs:label "Preference Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Profile;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology .
+
+###  https://w3id.org/enershare/flexibility/hasPreferenceProfile
+ener-flex:hasPreferenceProfile a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Preference Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ener-flex:PreferenceProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.     
+
+###  https://w3id.org/enershare/flexibility/ConsumptionProfile
+ener-flex:ConsumptionProfile  a owl:Class ;
+  rdfs:label "Consumption Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Profile;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology .  
+
+###  https://w3id.org/enershare/flexibility/hasTypicalConsumptionProfile
+ener-flex:hasTypicalConsumptionProfile a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Typical Consumption Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ener-flex:ConsumptionProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.  
+
+
+###  https://w3id.org/enershare/flexibility/FlexibilityProfile
+ic-flex:FlexibilityProfile  a owl:Class ;
+  rdfs:label "Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Profile;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology .  
+
+###  https://w3id.org/enershare/flexibility/hasFlexibilityProfile
+ener-flex:hasFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.  
+
+###  https://w3id.org/enershare/flexibility/hasProvisionedFlexibilityProfile
+ener-flex:hasProvisionedFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Provisioned Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.  
+
+###  https://w3id.org/enershare/flexibility/hasPotentielFlexibilityProfile
+ener-flex:hasPotentielFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Potentiel Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.    
+
+###  https://w3id.org/enershare/flexibility/hasEstimatedFlexibilityProfile
+ener-flex:hasEstimatedFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Estimated Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.  
+
+###  https://w3id.org/enershare/flexibility/hasEstimatedFlexibilityProfile
+ener-flex:hasEstimatedFlexibilityProfile a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Estimated Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.  
+
+###  https://w3id.org/enershare/flexibility/hasEnergyFlexibilityProfile
+ener-flex:hasEnergyFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Energy Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.   
+
+###  https://w3id.org/enershare/flexibility/ForecastOfFlexibilityProfile
+ener-flex:ForecastOfFlexibilityProfile  a owl:Class ;
+  rdfs:label "Forecast Of Flexibility Profile"@en ;
+  rdfs:comment "The class for forecast of Flexibility Profile"@en ;
+  rdfs:subClassOf seas:Forecast; 
+  rdfs:subClassOf[ owl:onProperty seas:forecasts ; owl:someValuesFrom ic-flex:FlexibilityProfile] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology .
+
+###  https://w3id.org/enershare/flexibility/hasForecastOfFlexibilityProfile
+ener-flex:hasForecastOfFlexibilityProfile a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "has Forecast Of Flexibility Profile"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-flex:hasFlexibilityProfile;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range ic-flex:FlexibilityProfile;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-flex:FlexibilityOntology.

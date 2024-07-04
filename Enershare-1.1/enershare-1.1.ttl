@@ -1,0 +1,60 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+@prefix ener: <https://w3id.org/enershare/>.
+@base <https://w3id.org/enershare/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+
+
+
+<https://w3id.org/enershare/> rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Ontology"@en ;
+  dcterms:description """The main Enershare ontology glues together all of the Enershare modules""";
+  dcterms:creator "Lynda TEMAL and Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:issued "2024-03-14"^^xsd:date ;
+  dcterms:modified "2024-05-06"^^xsd:date ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/> ;
+  owl:versionIRI <https://w3id.org/enershare/enershare-1.1> ;
+  owl:versionInfo "v1.1" ;
+  owl:priorVersion <https://w3id.org/enershare/ener-1.1> ;
+  owl:imports <https://w3id.org/enershare/AlignmentOntology-1.1> , 
+              <https://w3id.org/enershare/ChemicalCompoundOntology-1.1>,
+              <https://w3id.org/enershare/DeviceOntology-1.1> ,
+              <https://w3id.org/enershare/DigitalTwinOntology-1.1> ,
+              <https://w3id.org/enershare/EnergyResourceOntology-1.1> ,
+              <https://w3id.org/enershare/EventOntology-1.1> ,
+              <https://w3id.org/enershare/FailureOntology-1.1> ,
+              <https://w3id.org/enershare/FlexibilityOntology-1.1> ,
+              <https://w3id.org/enershare/ForecastOntology-1.1> ,
+              <https://w3id.org/enershare/GridOntology-1.1> ,
+              <https://w3id.org/enershare/MaintenanceOntology-1.1> ,
+              <https://w3id.org/enershare/MarketOntology-1.1> ,
+              <https://w3id.org/enershare/PlayerOntology-1.1> ,
+              <https://w3id.org/enershare/PricePropertyOntology-1.1> ,
+              <https://w3id.org/enershare/PropertyOntology-1.1> ,
+              <https://w3id.org/enershare/ScheduleOntology-1.1> ,
+              <https://w3id.org/enershare/SystemOntology-1.1> ,
+              <https://w3id.org/enershare/WindTurbineOntology-1.1> .

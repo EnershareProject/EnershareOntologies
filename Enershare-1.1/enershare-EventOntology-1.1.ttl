@@ -1,0 +1,224 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix pep: <https://w3id.org/pep/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-evnt: <https://w3id.org/enershare/maintenance/>.
+@base <https://w3id.org/enershare/event/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-evnt:EventOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare event Ontology"@en ;
+  dcterms:description "The Enershare event vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2023-12-21"^^xsd:date ;
+  dcterms:modified "2024-04-22"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-evnt" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/event/> ;  
+  owl:versionIRI <https://w3id.org/enershare/EventOntology-1.1> .
+
+
+              
+### https://w3id.org/enershare/event/LoadingEvent
+ener-evnt:LoadingEvent  a owl:Class ;
+  rdfs:label "Loading Event "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Event;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasLoadingEvent
+ener-evnt:hasLoadingEvent  a owl:ObjectProperty  ;
+  rdfs:label "has Loading Event"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:LoadingEvent ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .  
+
+### https://w3id.org/enershare/event/SignalIrregularityAlert
+ener-evnt:SignalIrregularityAlert  a owl:Class ;
+  rdfs:label "Signal Irregularity Alert "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Alert;  
+  rdfs:seeAlso fiware:Alert;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/AlarmCause
+ener-evnt:AlarmCause  a owl:Class ;
+  rdfs:label "Alarm cause"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:FailureCause;  
+  rdfs:seeAlso fiware:alarm;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/Optimization
+ener-evnt:Optimization  a owl:Class ;
+  rdfs:label "Optimization"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf pep:Procedure;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/Optimization
+ener-evnt:OptimizationProcedure  a owl:Class ;
+  rdfs:label "OptimizationProcedure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf pep:ProcedureExecution;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasOptimization
+ener-evnt:hasOptimization  a owl:ObjectProperty  ;
+  rdfs:label "has Optimization"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:Optimization ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/MaximizationOfSelfConsumptionOptimization
+ener-evnt:MaximizationOfSelfConsumptionOptimization  a owl:Class ;
+  rdfs:label "Maximization Of Self Consumption Optimization"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-evnt:Optimization ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasMaximizationOfSelfConsumption
+ener-evnt:hasMaximizationOfSelfConsumption  a owl:ObjectProperty  ;
+  rdfs:label "has Maximization Of Self Consumption"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:MaximizationOfSelfConsumptionOptimization ;
+  rdfs:seeAlso fiware:selfConsumption;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/ReverseFlowEvent
+ener-evnt:ReverseFlowEvent  a owl:Class ;
+  rdfs:label "Reverse Flow Event"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Event ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasReverseFlow
+ener-evnt:hasReverseFlow  a owl:ObjectProperty  ;
+  rdfs:label "has Reverse Flow"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:ReverseFlowEvent ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/GridCongestionEvent
+ener-evnt:GridCongestionEvent  a owl:Class ;
+  rdfs:label "Grid Congestion Event"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Event ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasCongestion
+ener-evnt:hasCongestion  a owl:ObjectProperty  ;
+  rdfs:label "has Congestion"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:GridCongestionEvent ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/ScheduledInvestment
+ener-evnt:ScheduledInvestment  a owl:Class ;
+  rdfs:label "Scheduled Investment"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:ScheduledEvent ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/hasScheduledInvestment
+ener-evnt:hasScheduledInvestment a owl:ObjectProperty  ;
+  rdfs:label "has Scheduled Investment"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:ScheduledInvestment ;
+  rdfs:seeAlso fiware:scheduled;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/ChargingScheduledEvent
+ener-evnt:ChargingScheduledEvent  a owl:Class ;
+  rdfs:label "Charging Scheduled Event"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:ScheduledEvent ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .
+
+### https://w3id.org/enershare/event/ChargingSession
+ener-evnt:ChargingSession  a owl:Class ;
+  rdfs:label "Charging Session"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf pep:ProcedureExecution, plt:Event ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology .  
+
+### https://w3id.org/enershare/event/hasChargingSession
+ener-evnt:hasChargingSession a owl:ObjectProperty  ;
+  rdfs:label "has Charging Session"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range ener-evnt:ChargingSession ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology . 
+
+### https://w3id.org/enershare/event/MicroPayment
+ener-evnt:MicroPayment  a owl:Class ;
+  rdfs:label "Micro Payment "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf  plt:Event ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-evnt:EventOntology.
+
+#######################################
+#   reused concepts                   #
+#######################################  
+
+plt:Event a owl:Class.
+plt:Alert a owl:Class.
+plt:ScheduledEvent a owl:Class.
+plt:FailureCause a owl:Class.

@@ -1,0 +1,405 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix seas: <https://w3id.org/seas/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix ecfo: <https://w3id.org/ecfo#>.
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-chem: <https://w3id.org/enershare/chemicalcompound/>.
+@base <https://w3id.org/enershare/chemicalcompound/>.
+
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-chem:ScheduleOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Chemical Compound Ontology"@en ;
+  dcterms:description "The Enershare Chemical Compound vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-03-19"^^xsd:date ;
+  dcterms:modified "2024-04-24"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL";
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-chem" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/chemicalcompound/> ;  
+  owl:versionIRI <https://w3id.org/enershare/ChemicalCompoundOntology-1.1> .
+
+
+
+
+###   https://w3id.org/enershare/chemicalcompound/ChemicalConcentrationProperty
+ener-chem:ChemicalConcentrationProperty a owl:Class ;
+  rdfs:label " Chemical Concentration Property  "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Property;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .
+
+###   https://w3id.org/enershare/chemicalcompound/ChemicalConcentrationEvaluation
+ener-chem:ChemicalConcentrationEvaluation a owl:Class ;
+  rdfs:label "Chemical Concentration Evaluation"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Evaluation;  
+  rdfs:subClassOf [ a owl:Restriction ; owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-chem:ChemicalConcentrationProperty] ;
+  owl:equivalentClass [ owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-chem:ChemicalConcentrationProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .
+
+###   https://w3id.org/enershare/chemicalcompound/hasChemicalConcentration
+ener-chem:hasChemicalConcentration a owl:ObjectProperty  ;
+  rdfs:label "has Chemical Concentration"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:range ener-chem:ChemicalConcentrationProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology. 
+
+###   https://w3id.org/enershare/chemicalcompound/isChemicalCompoundConcentrationOf
+ ener-chem:isChemicalCompoundConcentrationOf a owl:ObjectProperty  ;
+  rdfs:label "is Concentration Of Chemical Compound"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf saref:isAboutOf ;
+  rdfs:domain ener-chem:ChemicalConcentrationProperty ;
+  rdfs:range ecfo:ChemicalCompound;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology. 
+
+###  https://w3id.org/enershare/chemicalcompound/Methane
+ener-chem:Methane  a owl:Class ;
+  rdfs:label "Methane"@en ;
+  skos:altLabel "CH4"@en;
+  rdfs:comment """A one-carbon compound in which the carbon is attached by single bonds to four hydrogen atoms. It is a colourless, 
+                odourless, non-toxic but flammable gas (b.p. −161°C).source(https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16183)"""@en ,
+                """Methane (US: /ˈmɛθeɪn/ METH-ayn, UK: /ˈmiːθeɪn/ MEE-thayn) is a chemical compound with the chemical formula CH4 (
+                  one carbon atom bonded to four hydrogen atoms). It is a group-14 hydride, the simplest alkane, and the main constituent of natural gas. 
+                  The abundance of methane on Earth makes it an economically attractive fuel, although capturing and storing it is hard because it is a gas at 
+                  standard temperature and pressure. source (https://en.wikipedia.org/wiki/Methane)"""@en;
+  rdfs:subClassOf ecfo:ChemicalCompound ;  
+  ener-chem:hasChemicalFormula "CH4";
+  owl:equivalentClass chebi:16183;
+  rdfs:seeAlso <https://dbpedia.org/resource/Methane>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .  
+
+###  https://w3id.org/enershare/chemicalcompound/Ethane
+ener-chem:Ethane  a owl:Class ;
+  rdfs:label "Ethane"@en  ;
+  skos:altLabel "C2H6"@en;
+  rdfs:comment """An alkane comprising of two carbon atoms. source (https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:42266)"""@en , 
+                """Ethane (US: /ˈɛθeɪn/ ETH-ayn, UK: /ˈiːθeɪn/ EE-thayn) is an organic chemical compound with chemical formula C2H6. 
+                At standard temperature and pressure, ethane is a colorless, odorless gas. Like many hydrocarbons, ethane is isolated 
+                on an industrial scale from natural gas and as a petrochemical by-product of petroleum refining. 
+                Its chief use is as feedstock for ethylene production. (source https://en.wikipedia.org/wiki/Ethane)"""@en;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C2H6";  
+  owl:equivalentClass chebi:42266;
+  rdfs:seeAlso <https://dbpedia.org/resource/Ethane>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/Propane
+ener-chem:Propane  a owl:Class ;
+  rdfs:label "Propane"@en ;
+  skos:altLabel "C3H8"@en;
+  rdfs:comment """https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:32879"""@en, 
+                """Propane (/ˈproʊpeɪn/) is a three-carbon alkane with the molecular formula C3H8. It is a gas at standard temperature and pressure, 
+                but compressible to a transportable liquid. A by-product of natural gas processing and petroleum refining, it is commonly used as a fuel in 
+                domestic and industrial applications and in low-emissions public transportation. Discovered in 1857 by the French chemist Marcellin Berthelot, 
+                it became commercially available in the US by 1911. Propane is one of a group of liquefied petroleum gases (LP gases). 
+                The others include propylene, butane, butylene, butadiene, isobutylene, and mixtures thereof. 
+                Propane has lower volumetric energy density, but higher gravimetric energy density and burns more cleanly than gasoline and coal (source https://en.wikipedia.org/wiki/Propane)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C3H8";  
+  owl:equivalentClass chebi:32879;
+  vs:term_status "testing" ; 
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/Isobutane
+ener-chem:Isobutane  a owl:Class ;
+  rdfs:label "Isobutane"@en ;
+  skos:altLabel "C4H10"@en;
+  rdfs:comment """An alkane that is propane substituted by a methyl group at position 2. source(https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:30363)"""@en,
+                """Isobutane, also known as i-butane, 2-methylpropane or methylpropane, is a chemical compound with molecular formula HC(CH3)3. 
+                It is an isomer of butane. Isobutane is a colorless, odorless gas. It is the simplest alkane with a tertiary carbon atom. 
+                Isobutane is used as a precursor molecule in the petrochemical industry, for example in the synthesis of isooctane. (source https://en.wikipedia.org/wiki/Isobutane)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C4H10";  
+  owl:equivalentClass chebi:30363;
+  rdfs:seeAlso <https://dbpedia.org/resource/Isobutane>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+###  https://w3id.org/enershare/chemicalcompound/NormalButane
+ener-chem:NormalButane  a owl:Class ;
+  rdfs:label "NormalButane"@en ;
+  skos:altLabel "C4H10"@en;
+  rdfs:comment """A straight chain alkane composed of 4 carbon atoms."""@en,
+                """Butane (/ˈbjuːteɪn/) or n-butane is an alkane with the formula C4H10. Butane is a highly flammable, colorless, easily liquefied gas that quickly 
+                vaporizes at room temperature and pressure. The name butane comes from the root but- (from butyric acid, named after the Greek word for butter) and 
+                the suffix -ane. It was discovered in crude petroleum in 1864 by Edmund Ronalds, who was the first to describe its properties, and commercialized 
+                by Walter O. Snelling in early 1910s.
+                Butane is one of a group of liquefied petroleum gases (LP gases). The others include propane, propylene, butadiene, butylene, isobutylene, and 
+                mixtures thereof. Butane burns more cleanly than both gasoline and coal. (source https://en.wikipedia.org/wiki/Butane)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C4H10";  
+  owl:equivalentClass chebi:37808;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/IsoPentane
+ener-chem:IsoPentane  a owl:Class ;
+  rdfs:label "IsoPentane"@en;
+  skos:altLabel "C5H12"@en;
+  rdfs:comment """An alkane that is butane substituted by a methyl group at position 2.source(https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:30362)"""@en ,
+                """Isopentane, also called methylbutane or 2-methylbutane, is a branched-chain saturated hydrocarbon (an alkane) with five carbon atoms, 
+                with formula C5H12 or CH(CH3)2(C2H5). Isopentane is an extremely volatile and extremely flammable liquid at room temperature and pressure. 
+                It is also the least dense liquid at standard conditions. The normal boiling point is just a few degrees above room temperature and isopentane will 
+                readily boil and evaporate away on a warm day. Isopentane is commonly used in conjunction with liquid nitrogen to achieve a liquid bath temperature of 
+                −160 °C. Natural gas typically contains 1% or less isopentane, but it is a significant component of natural gasoline. (source https://en.wikipedia.org/wiki/Isopentane) """@en;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C5H12";  
+  owl:equivalentClass chebi:30362;
+  rdfs:seeAlso <https://dbpedia.org/resource/Isopentane>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+
+###  https://w3id.org/enershare/chemicalcompound/NormalPentane 
+ener-chem:NormalPentane  a owl:Class ;
+  rdfs:label "NormalPentane"@en ;
+  skos:altLabel "C5H12"@en;
+  rdfs:comment """A straight chain alkane consisting of 5 carbon atoms. source(https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:37830"""@en,
+                """Pentane is an organic compound with the formula C5H12—that is, an alkane with five carbon atoms. The term may refer to any of three structural isomers, 
+                    or to a mixture of them: in the IUPAC nomenclature, however, pentane means exclusively the n-pentane isomer, in which case pentanes refers to a mixture
+                    of them; the other two are called isopentane (methylbutane) and neopentane (dimethylpropane). Cyclopentane is not an isomer of pentane because 
+                    it has only 10 hydrogen atoms where pentane has 12. Pentanes are components of some fuels and are employed as specialty solvents in the laboratory. 
+                    Their properties are very similar to those of butanes and hexanes. source (https://en.wikipedia.org/wiki/Pentane)""" ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C5H12";  
+  owl:equivalentClass chebi:37830;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/NeoPentane
+ener-chem:NeoPentane  a owl:Class ;
+  rdfs:label "NeoPentane"@en ;
+  skos:altLabel "C5H12"@en;
+  rdfs:comment """Neopentane, also called 2,2-dimethylpropane, is a double-branched-chain alkane with five carbon atoms. Neopentane is a flammable gas at room 
+                temperature and pressure which can condense into a highly volatile liquid on a cold day, in an ice bath, or when compressed to a higher pressure.
+
+                Neopentane is the simplest alkane with a quaternary carbon, and has achiral tetrahedral symmetry. It is one of the three structural isomers with 
+                the molecular formula C5H12 (pentanes), the other two being n-pentane and isopentane. Out of these three, it is the only one to be a gas at standard 
+                conditions; the others are liquids. source (https://en.wikipedia.org/wiki/Neopentane) """@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "C5H12";  
+  owl:equivalentClass chebi:30358;
+  rdfs:seeAlso <https://dbpedia.org/resource/Neopentane>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+###  https://w3id.org/enershare/chemicalcompound/Nitrogen
+ener-chem:Nitrogen  a owl:Class ;
+  rdfs:label "Nitrogen"@en ;
+  skos:altLabel "N"@en;
+  rdfs:comment """Nitrogen is a chemical element; it has symbol N and atomic number 7. Nitrogen is a nonmetal and the lightest member of group 15 of the periodic table, 
+                often called the pnictogens. It is a common element in the universe, estimated at seventh in total abundance in the Milky Way and the Solar System. 
+                At standard temperature and pressure, two atoms of the element bond to form N2, a colorless and odorless diatomic gas. N2 forms about 78% of Earth's 
+                atmosphere, making it the most abundant uncombined element in air. Because of the volatility of nitrogen compounds, nitrogen is relatively rare in the 
+                solid parts of the Earth. (source https://en.wikipedia.org/wiki/Nitrogen)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "N";  
+  owl:equivalentClass chebi:29351;
+    rdfs:seeAlso <https://dbpedia.org/resource/Nitrogen>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/Hydrogen
+ener-chem:Hydrogen  a owl:Class ;
+  rdfs:label "Hydrogen"@en ;
+  skos:altLabel "H2"@en;
+  rdfs:comment """Hydrogen is a chemical element; it has symbol H and atomic number 1. It is the lightest element and, at standard conditions, is a gas of diatomic 
+                    molecules with the formula H2, sometimes called dihydrogen, but more commonly called hydrogen gas, molecular hydrogen or simply hydrogen. 
+                    It is colorless, odorless, tasteless, non-toxic, and highly combustible. Constituting approximately 75% of all normal matter, 
+                    hydrogen is the most abundant chemical substance in the universe. Stars, including the Sun, primarily consist of hydrogen in a plasma state,
+                     while on Earth, hydrogen is found in water, organic compounds, and other molecular forms. The most common isotope of hydrogen (symbol 1H) consists of 
+                     one proton, one electron, and no neutrons. (source https://en.wikipedia.org/wiki/Hydrogen)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "H2";  
+  owl:equivalentClass chebi:18276;
+  rdfs:seeAlso <https://dbpedia.org/resource/Hydrogen>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/CarbonMonoxide
+ener-chem:CarbonMonoxide  a owl:Class ;
+  rdfs:label "Carbon Monoxide"@en ;
+  skos:altLabel "CO"@en;
+  rdfs:comment """A one-carbon compound in which the carbon is joined only to a single oxygen. It is a colourless, odourless, tasteless, toxic gas. (source https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17245)"""@en , """Carbon monoxide (chemical formula CO) is a poisonous, flammable gas that is colorless, odorless, tasteless, and slightly less dense than air. 
+                Carbon monoxide consists of one carbon atom and one oxygen atom connected by a triple bond. It is the simplest carbon oxide. 
+                In coordination complexes, the carbon monoxide ligand is called carbonyl. It is a key ingredient in many processes in industrial chemistry 
+                (source https://en.wikipedia.org/wiki/Carbon_monoxide)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ; 
+  ener-chem:hasChemicalFormula "CO";   
+  owl:equivalentClass chebi:17245;
+  rdfs:seeAlso <https://dbpedia.org/resource/Carbon_monoxide>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .  
+
+###  https://w3id.org/enershare/chemicalcompound/CarbonDioxide
+ener-chem:CarbonDioxide  a owl:Class ;
+  rdfs:label "Carbon Dioxide"@en ;
+  skos:altLabel "CO2"@en;
+  rdfs:comment       """A one-carbon compound with formula CO2 in which the carbon is attached to each oxygen atom by a double bond. A colourless, odourless gas under 
+                    normal conditions, it is produced during respiration by all animals, fungi and microorganisms that depend directly or indirectly on living or 
+                    decaying plants for food. (source https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16526)"""@en , 
+                    """Carbon dioxide is a chemical compound with the chemical formula CO2. It is made up of molecules that each have one carbon atom covalently double 
+                    bonded to two oxygen atoms. It is found in the gas state at room temperature, and as the source of available carbon in the carbon cycle, 
+                    atmospheric CO2 is the primary carbon source for life on Earth. In the air, carbon dioxide is transparent to visible light but absorbs 
+                    infrared radiation, acting as a greenhouse gas. Carbon dioxide is soluble in water and is found in groundwater, lakes, ice caps, and seawater. 
+                    When carbon dioxide dissolves in water, it forms carbonate and mainly bicarbonate (HCO−3), which causes ocean acidification as atmospheric CO2 
+                    levels increase. (source https://en.wikipedia.org/wiki/Carbon_dioxide) """@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "CO2";    
+  owl:equivalentClass chebi:16526;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .  
+
+###  https://w3id.org/enershare/chemicalcompound/Hydrocarbon
+ener-chem:Hydrocarbon  a owl:Class ;
+  rdfs:label "Hydrocarbon"@en;
+  skos:altLabel "CxHy"@en;
+  rdfs:comment """A compound consisting of carbon and hydrogen only. source (https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:24632)"""@en , 
+                """In organic chemistry, a hydrocarbon is an organic compound consisting entirely of hydrogen and carbon. Hydrocarbons are examples of group 
+                14 hydrides. Hydrocarbons are generally colourless and hydrophobic; their odor is usually faint, and may be similar to that of gasoline or lighter fluid.
+                They occur in a diverse range of molecular structures and phases: they can be gases (such as methane and propane), liquids (such as hexane and benzene), 
+                low melting solids (such as paraffin wax and naphthalene) or polymers (such as polyethylene and polystyrene).(source https://en.wikipedia.org/wiki/Hydrocarbon)""";
+  rdfs:subClassOf ecfo:ChemicalCompound ;
+  ener-chem:hasChemicalFormula "CxHy";     
+  owl:equivalentClass chebi:24632;
+  rdfs:seeAlso <https://dbpedia.org/resource/Hydrocarbon>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .  
+
+###  https://w3id.org/enershare/chemicalcompound/DinitrogenOxide
+ener-chem:DinitrogenOxide  a owl:Class ;
+  rdfs:label "Dinitrogen Oxide"@en , "N2O"@en;
+  skos:altLabel "N2O";
+  rdfs:comment """A nitrogen oxide consisting of linear unsymmetrical molecules with formula N2O. While it is the most used gaseous anaesthetic in the world,
+                 its major commercial use, due to its solubility under pressure in vegetable fats combined with its non-toxicity in low concentrations, 
+                 is as an aerosol spray propellant and aerating agent for canisters of 'whipped' cream. source (https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17045)"""@en ,
+                """Nitrous oxide (dinitrogen oxide or dinitrogen monoxide), commonly known as laughing gas, nitrous, nitro, or nos, is a chemical compound, an oxide of 
+                nitrogen with the formula N2O. At room temperature, it is a colourless non-flammable gas, and has a slightly sweet scent and taste. 
+                At elevated temperatures, nitrous oxide is a powerful oxidiser similar to molecular oxygen. Nitrous oxide has significant medical uses, 
+                especially in surgery and dentistry, for its anaesthetic and pain-reducing effects. Its colloquial name, "laughing gas", coined by Humphry Davy, 
+                is due to the euphoric effects upon inhaling it, a property that has led to its recreational use as a dissociative anaesthetic. 
+                It is on the World Health Organization's List of Essential Medicines. It is also used as an oxidiser in rocket propellants, and in motor racing to increase 
+                the power output of engines. Nitrous oxide's atmospheric concentration reached 333 parts per billion (ppb) in 2020, increasing at a rate of about 1 ppb annually. 
+                It is a major scavenger of stratospheric ozone, with an impact comparable to that of CFCs. Global accounting of N2O sources and sinks over the decade ending 2016 
+                indicates that about 40% of the average 17 TgN/yr (teragrams, or million metric tons, of nitrogen per year) of emissions originated from human activity, 
+                and shows that emissions growth chiefly came from expanding agriculture. Being the third most important greenhouse gas, nitrous oxide also substantially contributes 
+                to global warming.Nitrous oxide is used as a propellant, and has a variety of applications from rocketry to making whipped cream. It is used as a recreational drug 
+                for its potential to induce a brief "high". Most recreational users are unaware of its neurotoxic effects when abused. When used chronically, nitrous oxide has 
+                the potential to cause neurological damage through inactivation of vitamin B12. (source https://en.wikipedia.org/wiki/Nitrous_oxide)""";
+  rdfs:subClassOf ecfo:ChemicalCompound ; 
+  ener-chem:hasChemicalFormula "N2O";    
+  owl:equivalentClass chebi:17045;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+###  https://w3id.org/enershare/chemicalcompound/NitrogenOxide
+ener-chem:NitrogenOxide  a owl:Class ;
+  rdfs:label "Nitroge Oxide"@en ;
+  skos:altLabel "NOX"@en;
+  rdfs:comment """source (https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:35196)""", 
+                """In atmospheric chemistry, NOx is shorthand for nitric oxide (NO) and nitrogen dioxide (NO2), the nitrogen oxides that are most relevant for 
+                air pollution. These gases contribute to the formation of smog and acid rain, as well as affecting tropospheric ozone.
+                NOx gases are usually produced from the reaction between nitrogen and oxygen during combustion of fuels, such as hydrocarbons, in air; especially at 
+                high temperatures, such as in car engines. In areas of high motor vehicle traffic, such as in large cities, the nitrogen oxides emitted 
+                can be a significant source of air pollution. NOx gases are also produced naturally by lightning.
+                NOx does not include nitrous oxide (N2O), a fairly inert oxide of nitrogen that contributes less severely to air pollution, notwithstanding its 
+                involvement in ozone depletion and high global warming potential.  (source https://en.wikipedia.org/wiki/NOx) """@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ; 
+  ener-chem:hasChemicalFormula "NOX";  
+  owl:equivalentClass chebi:35196;
+   rdfs:seeAlso <https://dbpedia.org/resource/Hydrocarbon>;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+###  https://w3id.org/enershare/chemicalcompound/SulfureDioxide
+ener-chem:SulfureDioxide  a owl:Class ;
+  rdfs:label "Sulfure Dioxide"@en;
+  skos:altLabel "SO2"@en;
+  rdfs:comment """Sulfur dioxide (IUPAC-recommended spelling) or sulphur dioxide (traditional Commonwealth English) is the chemical compound with the formula SO2. 
+                It is a toxic gas responsible for the odor of burnt matches. It is released naturally by volcanic activity and is produced as a by-product of copper 
+                extraction and the burning of sulfur-bearing fossil fuels. It was known to alchemists as "volatile spirit of sulfur" since at least 16th century. 
+                (source https://en.wikipedia.org/wiki/Sulfur_dioxide)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ; 
+  ener-chem:hasChemicalFormula "SO2";  
+  owl:equivalentClass chebi:18422;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .   
+
+###  https://w3id.org/enershare/chemicalcompound/ParticulateMatterOf10MicronsDiameterOrLess
+ener-chem:ParticulateMatterOf10MicronsDiameterOrLess   a owl:Class ;
+  rdfs:label "ParticulateMatterOf10MicronsDiameterOrLess"@en ;
+  skos:altLabel "PM10"@en;
+  rdfs:comment """Environmentally persistent free radical"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology .  
+
+###  https://w3id.org/enershare/chemicalcompound/ParticulateMatterOf2.5MicronsDiameterOrLess
+ener-chem:ParticulateMatterOf2Point5MicronsDiameterOrLess    a owl:Class ;
+  rdfs:label "ParticulateMatterOf2.5MicronsDiameterOrLess-PM2.5"@en;
+  skos:altLabel "PM2.5"@en;
+  rdfs:comment """Any organic free radical stabilized on or inside other fine particles (PM2.5). It is a class of toxic air pollutants that have strong durability, 
+                can generate reactive oxygen species, and cause serious environmental pollution and toxicity. source (https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:229460)"""@en ;
+  rdfs:subClassOf ecfo:ChemicalCompound ; 
+  owl:equivalentClass chebi:229460; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 
+
+###  https://w3id.org/enershare/chemicalcompound/hasChemicalFormula
+ener-chem:hasChemicalFormula  a owl:AnnotationProperty ;
+  rdfs:label "has Chemical Formula"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain ecfo:ChemicalCompound;
+  rdfs:range xsd:String ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-chem:ChemicalCompoundOntology . 

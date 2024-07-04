@@ -1,0 +1,295 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-grid: <https://w3id.org/enershare/grid/>.
+@base <https://w3id.org/enershare/grid/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-grid:GridOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Grid Ontology"@en ;
+  dcterms:description "The Enershare Grid vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-01-24"^^xsd:date ;
+  dcterms:modified "2024-04-22"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-grid" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/property/> ;  
+  owl:versionIRI <https://w3id.org/enershare/grid/GridOntology-1.1> ;
+  owl:versionInfo "v1.0" .
+
+
+
+#### https://w3id.org/enershare/grid/Grid
+ener-grid:Grid a owl:Class ;
+  rdfs:label "Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:System; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/
+ener-grid:TransmissionGrid a owl:Class ;
+  rdfs:label " Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/ 
+ener-grid:DistributionGrid a owl:Class ;
+  rdfs:label " Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+
+###############################################
+#  Grid according to geographical properties  #
+###############################################
+
+#### https://w3id.org/enershare/grid/
+ener-grid:LocalGrid a owl:Class ;
+  rdfs:label "Local Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/NationalGrid
+ener-grid:NationalGrid a owl:Class ;
+  rdfs:label "National Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology . 
+
+
+#### https://w3id.org/enershare/grid/NaturalGasGrid
+ener-grid:NaturalGasGrid a owl:Class ;
+  rdfs:label "Natural Gas Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/NaturalGasTransmissionGrid  
+ener-grid:NaturalGasTransmissionGrid a owl:Class ;
+  rdfs:label " Natural Gas Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:TransmissionGrid, ener-grid:NaturalGasGrid ; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/LiquefiedNaturalGasTransmissionGrid  
+ener-grid:LiquefiedNaturalGasTransmissionGrid a owl:Class ;
+  rdfs:label "Liquefied Natural Gas Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasTransmissionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .  
+
+#### https://w3id.org/enershare/grid/RenewableNaturalGasTransmissionGrid 
+ener-grid:RenewableNaturalGasTransmissionGrid a owl:Class ;
+  rdfs:label "Renewable Natural Gas Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasTransmissionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology . 
+
+#### https://w3id.org/enershare/grid/NoRenewableNaturalGasTransmissionGrid 
+ener-grid:NoRenewableNaturalGasTransmissionGrid a owl:Class ;
+  rdfs:label "NoRenewable Natural Gas Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasTransmissionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/NaturalGasDistributionGrid 
+ener-grid:NaturalGasDistributionGrid a owl:Class ;
+  rdfs:label " Natural Gas Distribition Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:DistributionGrid, ener-grid:NaturalGasGrid ; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/RenewableNaturalGasDistributionGrid  
+ener-grid:RenewableNaturalGasDistributionGrid a owl:Class ;
+  rdfs:label "Renewable Natural Gas Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasDistributionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology . 
+
+#### https://w3id.org/enershare/grid/NoRenewableNaturalGasDistributionGrid  
+ener-grid:NoRenewableNaturalGasDistributionGrid a owl:Class ;
+  rdfs:label "NoRenewable Natural Gas Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasDistributionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/LiquefiedNaturalGasDistributionGrid 
+ener-grid:LiquefiedNaturalGasDistributionGrid a owl:Class ;
+  rdfs:label "Liquefied Natural Gas Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:NaturalGasDistributionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .    
+
+#### https://w3id.org/enershare/grid/HeatingGrid 
+ener-grid:HeatingGrid a owl:Class ;
+  rdfs:label " Heating Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/DistrictHeatingGrid 
+ener-grid:DistrictHeatingGrid a owl:Class ;
+  rdfs:label "District Heating Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:HeatingGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/IndustrialHeatingGrid 
+ener-grid:IndustrialHeatingGrid a owl:Class ;
+  rdfs:label "Industrial Heating Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:HeatingGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/ElectricalGrid 
+ener-grid:ElectricalGrid a owl:Class ;
+  rdfs:label "Electrical Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:Grid, seas:ElectricPowerSystem; 
+  owl:equivalentClass plt:ElectricalGrid;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/ElectricalTransmissionGrid 
+ener-grid:ElectricalTransmissionGrid a owl:Class ;
+  rdfs:label "Electrical Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:TransmissionGrid, ener-grid:ElectricalGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .  
+
+#### https://w3id.org/enershare/grid/HighVoltageTransmissionGrid 
+ener-grid:HighVoltageTransmissionGrid a owl:Class ;
+  rdfs:label "High Voltage Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalTransmissionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/ExtraHighVoltageTransmissionGrid 
+ener-grid:ExtraHighVoltageTransmissionGrid a owl:Class ;
+  rdfs:label "Extra High Voltage Transmission Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalTransmissionGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/ElectricalDistributionGrid  
+ener-grid:ElectricalDistributionGrid a owl:Class ;
+  rdfs:label "Electrical Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:DistributionGrid, ener-grid:ElectricalGrid; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/LowVoltageDistributionGrid 
+ener-grid:LowVoltageDistributionGrid a owl:Class ;
+  rdfs:label "Low Voltage Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalDistributionGrid; 
+  owl:equivalentClass ener-grid:SecondaryElectricalDistributionGrid;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/MidiumVoltageDistributionGrid 
+ener-grid:MidiumVoltageDistributionGrid a owl:Class ;
+  rdfs:label "Midium Voltage Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalDistributionGrid; 
+  owl:equivalentClass ener-grid:PrimaryElectricalDistributionGrid;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/PrimaryElectricalDistributionGrid 
+ener-grid:PrimaryElectricalDistributionGrid a owl:Class ;
+  rdfs:label "Primary Electrical Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalDistributionGrid; 
+  owl:equivalentClass ener-grid:MidiumVoltageDistributionGrid;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .
+
+#### https://w3id.org/enershare/grid/SecondaryElectricalDistributionGrid 
+ener-grid:SecondaryElectricalDistributionGrid a owl:Class ;
+  rdfs:label "Secondary Electrical Distribution Grid"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf ener-grid:ElectricalDistributionGrid; 
+  owl:equivalentClass ener-grid:LowVoltageDistributionGrid;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .  
+
+#### https://w3id.org/enershare/grid/primaryConnectedTo 
+ener-grid:primaryConnectedTo a owl:ObjectProperty  ;
+  rdfs:label "primaryConnectedTo"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain  seas:ElectricPowerTransformer;
+  rdfs:range ener-grid:PrimaryElectricalDistributionGrid ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .  
+
+#### https://w3id.org/enershare/grid/secondaryConnectedTo 
+ener-grid:secondaryConnectedTo a owl:ObjectProperty  ;
+  rdfs:label "secondaryConnectedTo"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain  seas:ElectricPowerTransformer;
+  rdfs:range ener-grid:SecondaryElectricalDistributionGrid ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-grid:GridOntology .  

@@ -1,0 +1,143 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix ontowind: <http://www.semanticweb.org/ontologies/2011/9/Ontology1318785573683.owl#> .
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix s4bldg: <https://w3id.org/def/saref4bldg#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix fiware:<https://uri.fiware.org/ns/data-models#>.
+@prefix ener-mrkt: <https://w3id.org/enershare/market>.
+
+
+@base <https://w3id.org/enershare/market/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-mrkt:MarketOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Market Ontology"@en ;
+  dcterms:description "The Enershare market vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-02-06"^^xsd:date ;
+  dcterms:modified "2024-04-25"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-mrkt" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/market/> ;  
+  owl:versionIRI <https://w3id.org/enershare/MarketOntology-1.1> .
+
+
+
+###  https://w3id.org/enershare/market/Market
+ener-mrkt:Market  a owl:Class ;
+  rdfs:label "Market"@en ;
+  rdfs:comment """A market is one of the many varieties of systems, institutions, procedures, social relations and infrastructures whereby parties engage in exchange.
+                   While parties may exchange goods and services by barter, most markets rely on sellers offering their goods or services (including labor) 
+                   in exchange for money from buyers. It can be said that a market is the process by which the prices of goods and services are established. 
+                   Markets facilitate trade and enables the distribution and allocation of resources in a society. Markets allow any trade-able item to be evaluated 
+                   and priced. A market emerges more or less spontaneously or may be constructed deliberately by human interaction in order to enable the exchange of
+                   rights (cf. ownership) of services and goods (@source Wikipedia)"""@en ;
+  rdfs:subClassOf seas:System;
+  rdfs:seeAlso fiware:Market;  
+   vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+
+###  https://w3id.org/enershare/market/BalancingMarket
+ener-mrkt:BalancingMarket  a owl:Class ;
+  rdfs:label "Balancing Market"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mrkt:Market; 
+  rdfs:seeAlso fiware:balancing; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/EnergyMarket
+ener-mrkt:EnergyMarket  a owl:Class ;
+  rdfs:label "Energy Market"@en ;
+  rdfs:comment """An energy market is a type of commodity market on which electricity, heat, and fuel products are traded. 
+                  Natural gas and electricity are examples of products traded on an energy market. Other energy commodities include: 
+                  oil, coal, carbon emissions (greenhouse gases), nuclear power, solar energy and wind energy. 
+                  Due to the difficulty in storing and transporting energy, current and future prices in energy are rarely linked. 
+                  This is because energy purchased at a current price is difficult (or impossible) to store and then sell at a later date. 
+                  (@source Wikipedia)"""@en ;
+  rdfs:subClassOf ener-mrkt:Market;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/NaturalGasMarket
+ener-mrkt:NaturalGasMarket  a owl:Class ;
+  rdfs:label " Natural Gas Market"@en ;
+  rdfs:comment """Natural gas Market is a kind of Energy Market where Natural Gas is Traded."""@en ;
+  rdfs:subClassOf ener-mrkt:EnergyMarket;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/ElectricityMarket
+ener-mrkt:ElectricityMarket  a owl:Class ;
+  rdfs:label "Electricity Market"@en ;
+  rdfs:comment """Electricity gas Market is a kind of Energy Market where Electricity is Traded"""@en ;
+  rdfs:subClassOf ener-mrkt:EnergyMarket;  
+  owl:equivalentClass seas:ElectricityMarket; # emo:Market;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/OilMarket
+ener-mrkt:OilMarket  a owl:Class ;
+  rdfs:label "Oil Market"@en ;
+  rdfs:comment """Oil Market is a kind of Energy Market where Oil is Traded"""@en ;
+  rdfs:subClassOf ener-mrkt:EnergyMarket;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/InternalElectricityMarket
+ener-mrkt:InternalElectricityMarket  a owl:Class ;
+  rdfs:label "Internal Electricity Market"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mrkt:ElectricityMarket;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+
+###  https://w3id.org/enershare/market/AncillaryServicesMarket
+ener-mrkt:AncillaryServicesMarket  a owl:Class ;
+  rdfs:label "Ancillary Services Market"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mrkt:ElectricityMarket ; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology .
+

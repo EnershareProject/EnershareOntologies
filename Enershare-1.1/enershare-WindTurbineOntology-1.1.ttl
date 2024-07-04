@@ -1,0 +1,461 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix s4bldg: <https://w3id.org/def/saref4bldg#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-wind: <https://w3id.org/enershare/windturbine/>.
+@base <https://w3id.org/enershare/windturbine/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-wind:WindTurbineOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Wind Turbine Ontology"@en ;
+  dcterms:description "The Enershare wind turbine vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2023-12-18"^^xsd:date ;
+  dcterms:modified "2024-05-22"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-wind" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/windturbine/> ;  
+  owl:versionIRI <https://w3id.org/enershare/windturbine/WindTurbineOntology-1.1> ;           
+  owl:versionInfo "v1.0" .
+
+
+### https://w3id.org/enershare/windturbine/OnshoreWindFarm
+ener-wind:OnshoreWindFarm a owl:Class;
+  rdfs:label "Onshore Wind Farm"@en ;
+  rdfs:comment "An Onshore  wind farm  is a wind farm of group of Onshore wind turbines in the same land location used to produce electricity."@en ;
+  rdfs:subClassOf plt:WindFarm,
+                      [ a owl:Restriction ; owl:onProperty seas:member ; owl:allValuesFrom plt:OnshoreWindTurbine ] ;
+  owl:equivalentClass [ owl:intersectionOf ( plt:WindFarm [ rdf:type owl:Restriction ; owl:onProperty seas:member ; owl:allValuesFrom plt:OnshoreWindTurbine]) ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/OffshoreWindFarm
+  ener-wind:OffshoreWindFarm a owl:Class;
+  rdfs:label "Offshore Wind Farm"@en ;
+  rdfs:comment "An Onshore  wind farm  is a wind farm of group of Offshore wind turbines in the same seas or freshwater location used to produce electricity."@en ;
+  rdfs:subClassOf plt:WindFarm,
+                  [ a owl:Restriction ; owl:onProperty seas:member ; owl:allValuesFrom plt:OffshoreWindTurbine ] ;
+  owl:equivalentClass  [ owl:intersectionOf ( plt:WindFarm [ rdf:type owl:Restriction ; owl:onProperty seas:member ; owl:allValuesFrom plt:OffshoreWindTurbine]) ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/PermanentMagnetGeneratorWindTurbine
+ener-wind:PermanentMagnetGeneratorWindTurbine a owl:Class ;
+  rdfs:label "Permanent Magnet Generator Wind Turbine"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:WindTurbine,  
+                  [ a owl:Restriction ; owl:onProperty seas:hasSubSystem; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass  ener-wind:PermanentMagnetGenerator ]; 
+  owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine [ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:someValuesFrom ener-wind:PermanentMagnetGenerator]) ] ;                 
+  owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine [ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass plt:PermanentMagnetGenerator]) ;rdf:type owl:Class] ;
+  owl:disjointWith ener-wind:DoubleFedInductionGeneratorWindTurbine;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/DoubleFedInductionGeneratorWindTurbine
+ener-wind:DoubleFedInductionGeneratorWindTurbine a owl:Class ;
+  rdfs:label "Double Fed Induction Generator Wind Turbine"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:WindTurbine,  
+                  [ a owl:Restriction ; owl:onProperty seas:hasSubSystem; owl:someValuesFrom plt:DoubleFedInductionGenerator ];  
+  owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine [ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:someValuesFrom plt:DoubleFedInductionGenerator]) ] ;                
+  owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine[ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass plt:DoubleFedInductionGenerator]) ;rdf:type owl:Class] ;
+  owl:disjointWith ener-wind:PermanentMagnetGeneratorWindTurbine ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+
+### https://w3id.org/enershare/windturbine/SynchronousGenerator
+ener-wind:SynchronousGenerator  a owl:Class;
+  rdfs:label "Synchronous Generator"@en;
+  rdfs:comment ""@en;
+  rdfs:subClassOf plt:Generator; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/PermanentMagnetGenerator
+ener-wind:PermanentMagnetGenerator  a owl:Class;
+  rdfs:label "Permanent Magnet Generator"@en;
+  rdfs:comment ""@en;
+  rdfs:subClassOf ener-wind:SynchronousGenerator ; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/CouplingInductor
+ener-wind:CouplingInductor a owl:Class ;
+  rdfs:label "Coupling Inductor"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Connection,
+                  [ rdf:type owl:Restriction ; owl:onProperty seas:connectsSystem ; owl:someValuesFrom ener-grid:ElectricalGrid] ,
+                  [ rdf:type owl:Restriction ; owl:onProperty seas:connectsSystem ;owl:someValuesFrom plt:PowerConverter] ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/LineFilterCapacitor
+ener-wind:LineFilterCapacitor a owl:Class ;
+  rdfs:label "Line Filter Capacitor"@en ;
+  rdfs:comment """Line filter capacitors are used in many appliances and industrial loads in order to protect the device from line voltage noise, 
+                  as well as to protect other devices on the same line from the noise generated inside the circuit."""@en ;
+  rdfs:subClassOf seas:Connection,
+                  [ rdf:type owl:Restriction ; owl:onProperty seas:connectsSystem ; owl:someValuesFrom plt:Rotor] ,
+                  [ rdf:type owl:Restriction ; owl:onProperty seas:connectsSystem ;owl:someValuesFrom plt:PowerConverter] ;  
+ 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/BoostConverter
+ener-wind:BoostConverter a owl:Class ;
+  rdfs:label "Boost Converter"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:PowerConverter;  
+  owl:disjointWith ener-wind:FullConverter , ener-wind:BackToBackConverter;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/FullConverter
+ener-wind:FullConverter a owl:Class ;
+  rdfs:label "Full Converter"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:PowerConverter; 
+  owl:disjointWith ener-wind:BoostConverter  , ener-wind:BackToBackConverter; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/BackToBackConverter
+ener-wind:BackToBackConverter a owl:Class ;
+  rdfs:label "Back To Back Converter"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:PowerConverter;
+  owl:disjointWith ener-wind:FullConverter , ener-wind:BoostConverter;   
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/HydraulicPitchSystem 
+ener-wind:HydraulicPitchSystem a owl:Class ;
+  rdfs:label "Hydraulic Pitch System"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:PitchSystem;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/HydraulicPitchMotor 
+ener-wind:HydraulicPitchMotor a owl:Class ;
+  rdfs:label "Hydraulic Pitch Motor"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:PitchMotor;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+##### https://w3id.org/enershare/windturbine/Cylinder  
+ener-wind:Cylinder a owl:Class ;
+  rdfs:label "Cylinder"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+##### https://w3id.org/enershare/windturbine/PitchCylinder 
+ener-wind:PitchCylinder a owl:Class ;
+  rdfs:label "Pitch Cylinder"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Cylinder ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+##### https://w3id.org/enershare/windturbine/HydraulicPitchCylinder  
+ener-wind:HydraulicPitchCylinder a owl:Class ;
+  rdfs:label "Hydraulic Pitch Cylinder"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:PitchCylinder ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+##### https://w3id.org/enershare/windturbine/PitchPump
+ener-wind:PitchPump a owl:Class ;
+  rdfs:label "Pitch Pump"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Pump, seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+#### https://w3id.org/enershare/windturbine/HydraulicPitchPump  
+ener-wind:HydraulicPitchPump a owl:Class ;
+  rdfs:label "Hydraulic Pitch Pump"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:PitchPump;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/Accumulator 
+ener-wind:Accumulator a owl:Class ;
+  rdfs:label "Accumulator"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/PitchAccumulator 
+ener-wind:PitchAccumulator a owl:Class ;
+  rdfs:label "Pitch Accumulator"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Accumulator ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+
+### https://w3id.org/enershare/windturbine/HydraulicPitchAccumulator  
+ener-wind:HydraulicPitchAccumulator a owl:Class ;
+  rdfs:label " Hydraulic Pitch Accumulator   "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:PitchAccumulator ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology . 
+
+### https://w3id.org/enershare/windturbine/PitchProportionalValve 
+ener-wind:PitchProportionalValve a owl:Class ;
+  rdfs:label "Pitch Proportional Valve"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf s4bldg:Valve, seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+  
+### https://w3id.org/enershare/windturbine/HydraulicPitchProportionalValve 
+ener-wind:HydraulicPitchProportionalValve a owl:Class ;
+  rdfs:label "Hydraulic Pitch Proportional Valve"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:PitchProportionalValve;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology . 
+
+### https://w3id.org/enershare/windturbine/Hose
+ener-wind:Hose a owl:Class ;
+  rdfs:label "Hose"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/HydraulicHose  
+ener-wind:HydraulicHose a owl:Class ;
+  rdfs:label "Hydraulic Hose"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Hose;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+
+### https://w3id.org/enershare/windturbine/HydraulicPitchHighPressureHose
+ener-wind:HydraulicPitchHighPressureHose a owl:Class ;
+  rdfs:label "Hydraulic Pitch High Pressure Hose "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:HydraulicHose;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+
+### https://w3id.org/enershare/windturbine/HydraulicPitchLowPressureHose 
+ener-wind:HydraulicPitchLowPressureHose a owl:Class ;
+  rdfs:label "Hydraulic Pitch Low Pressure Hose "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:HydraulicHose;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+  
+### https://w3id.org/enershare/windturbine/Seal 
+ener-wind:Seal a owl:Class ;
+  rdfs:label "Seal"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/PistonSeal
+ener-wind:PistonSeal a owl:Class ;
+  rdfs:label "Piston Seal"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Seal ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+#### https://w3id.org/enershare/windturbine/RodSeal  
+ener-wind:RodSeal a owl:Class ;
+  rdfs:label "Rod Seal"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Seal ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+
+#### https://w3id.org/enershare/windturbine/Chamber
+ener-wind:Chamber a owl:Class ;
+  rdfs:label "Chamber"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:System;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/PistonChamber 
+ener-wind:PistonChamber a owl:Class ;
+  rdfs:label "Piston Chamber"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Chamber ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/RodChamber 
+ener-wind:RodChamber a owl:Class ;
+  rdfs:label "Rod Chamber"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:Chamber ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/SignalFunction 
+ener-wind:SignalFunction a owl:Class ;
+  rdfs:label "Signal Function"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Function ,
+                  [ rdf:type owl:Restriction ; owl:onProperty saref:hasCommand ;owl:someValuesFrom ener-wind:SignalCommand] ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/SignalCommand  
+ener-wind:SignalCommand a owl:Class ;
+  rdfs:label "Signal Command"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf saref:Command ,
+                  [ rdf:type owl:Restriction ; owl:onProperty saref:isCommandOf ;owl:someValuesFrom ener-wind:SignalFunction] ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .  
+
+### https://w3id.org/enershare/windturbine/hasStopEvent
+ener-wind:hasStopEvent a owl:ObjectProperty  ;
+  rdfs:label "has Stop Event"@en ;
+  rdfs:comment """Links the wind turbine to its stop event."""@en ;
+  rdfs:domain plt:WindTurbine ;
+  rdfs:range plt:StopEvent;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology.
+
+### https://w3id.org/enershare/windturbine/InsulationClass
+ener-wind:InsulationClass a owl:Class ;
+  rdfs:label "Insulation Class"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf dul:TypeCollection;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/hasInsulationClass
+ener-wind:hasInsulationClass a owl:ObjectProperty  ;
+  rdfs:label "has Insulation Class"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain  seas:System ;
+  rdfs:range ener-wind:InsulationClass;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology.
+
+### https://w3id.org/enershare/windturbine/GeneratorInsulationClass
+ener-wind:GeneratorInsulationClass a owl:Class ;
+  rdfs:label "Generator Insulation Class"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-wind:InsulationClass;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology .
+
+### https://w3id.org/enershare/windturbine/
+ener-wind:hasGeneratorInsulationClass a owl:ObjectProperty  ;
+  rdfs:label "has Generator Insulation Class"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-wind:hasInsulationClass ;
+  rdfs:domain  seas:System ;
+  rdfs:range ener-wind:GeneratorInsulationClass;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-wind:WindTurbineOntology.
+
+### https://w3id.org/enershare/windturbine/A
+ener-wind:A rdf:type  ener-wind:InsulationClass, owl:NamedIndividual;
+rdfs:label "A".
+
+### https://w3id.org/enershare/windturbine/B
+ener-wind:B rdf:type  ener-wind:InsulationClass, owl:NamedIndividual;
+rdfs:label "B".
+
+### https://w3id.org/enershare/windturbine/
+ener-wind:F rdf:type   ener-wind:InsulationClass, owl:NamedIndividual;
+rdfs:label "F".
+
+### https://w3id.org/enershare/windturbine/
+ener-wind:H rdf:type   ener-wind:InsulationClass, owl:NamedIndividual;
+rdfs:label "H".
+
+#######################################
+#   reused concepts                   #
+#######################################  
+
+plt:WindFarm a owl:Class.
+plt:OnshoreWindTurbine a owl:Class.
+plt:OffshoreWindTurbine a owl:Class.
+plt:Generator a owl:Class.
+plt:ElectricalGrid  a owl:Class.
+plt:PowerConverter  a owl:Class.
+plt:Rotor a owl:Class.
+plt:PitchSystem a owl:Class.
+
+plt:PitchMotor a owl:Class.
+seas:System a owl:Class.
+s4bldg:Valve a owl:Class.
+plt:WindTurbine a owl:Class.
+plt:StopEvent a owl:Class.
+saref:Command a owl:Class.
+saref:Function a owl:Class.
+dul:TypeCollection a owl:Class.
+seas:Connection a owl:Class.
+
+
+
+#######################################
+#   reused relations                  #
+#######################################
+
+seas:member a owl:ObjectProperty.
+seas:connectsSystem a owl:ObjectProperty.
+seas:hasSubSystem a owl:ObjectProperty.
+saref:isCommandOf a owl:ObjectProperty.
+saref:hasCommand a owl:ObjectProperty.
+s4bldg:isContainedIn a owl:ObjectProperty.

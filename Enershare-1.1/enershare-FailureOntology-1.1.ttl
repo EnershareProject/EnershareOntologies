@@ -1,0 +1,414 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix cim: <http://www.iec.ch/TC57/CIM#>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix saref: <https://w3id.org/saref#> .
+@prefix sdm: <https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/>.
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-fail: <https://w3id.org/enershare/failure/>.
+@base <https://w3id.org/enershare/failure/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-fail:FailureyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare failure Ontology"@en ;
+  dcterms:description "The Enershare failure vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2023-12-21"^^xsd:date ;
+  dcterms:modified "2024-05-29"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-fail" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/failure/> ;  
+  owl:versionIRI <https://w3id.org/enershare/FailureOntology-1.1> ;
+  #owl:imports  
+            #   ener:AlignmentOntology;         
+  owl:versionInfo "v1.0" .
+
+
+
+###  <https://w3id.org/enershare/failure/WorkingMode 
+ener-fail:WorkingMode  a owl:Class ;
+  rdfs:label "Working Mode"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Event;
+  rdfs:seeAlso sdm:workingMode;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+
+###  <https://w3id.org/enershare/failure/FailureMode 
+ener-fail:FailureMode  a owl:Class ;
+  rdfs:label "Failure Mode"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:WorkingMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/HealthyMode 
+ener-fail:HealthyMode  a owl:Class ;
+  rdfs:label "Healthy Mode"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:WorkingMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/CircuitFailure 
+ener-fail:CircuitFailure  a owl:Class ;
+  rdfs:label "Circuit Failure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/OverheatingFailure  
+ener-fail:OverheatingFailure  a owl:Class ;
+  rdfs:label "Overheating Failure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/CommunicationLossFailure   
+ener-fail:CommunicationLossFailure  a owl:Class ;
+  rdfs:label "Communication Loss Failure "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/SwitchFault   
+ener-fail:SwitchFault  a owl:Class ;
+  rdfs:label "Switch Fault"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/OpenSwitchFault 
+ener-fail:OpenSwitchFault  a owl:Class ;
+  rdfs:label "Open Switch Fault"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:SwitchFault; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/StatorWindingShortCircuit  
+ener-fail:ShortCircuit  a owl:Class ;
+  rdfs:label "Short Circuit"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/StatorWindingShortCircuit  
+ener-fail:StatorWindingShortCircuit  a owl:Class ;
+  rdfs:label "Stator Winding Short Circuit"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:ShortCircuit,
+                [ a owl:Restriction ; owl:onProperty plt:relatedTo ; owl:allValuesFrom plt:StatorWinding ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/PhaseToPhaseShortCircuit  
+ener-fail:PhaseToPhaseShortCircuit  a owl:Class ;
+  rdfs:label "Phase To Phase Short Circuit"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:ShortCircuit;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/PhaseToGroundShortCircuit  
+ener-fail:PhaseToGroundShortCircuit  a owl:Class ;
+  rdfs:label "Phase To Ground Short Circuit"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:ShortCircuit;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/InterturnShortCircuit  
+ener-fail:InterturnShortCircuit  a owl:Class ;
+  rdfs:label "Interturn Short Circuit"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:ShortCircuit;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/ShortCircuitBetweenTerminals  
+ener-fail:ShortCircuitBetweenTerminals  a owl:Class ;
+  rdfs:label "Short Circuit Between Terminals"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:ShortCircuit;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology.    
+
+###  <https://w3id.org/enershare/failure/AbnormalConductance 
+ener-fail:AbnormalConductance  a owl:Class ;
+  rdfs:label "Abnormal Conductance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/AbnormalSpeed 
+ener-fail:AbnormalSpeed  a owl:Class ;
+  rdfs:label "Abnormal Speed"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/UnhealthyBehavior   
+ener-fail:UnhealthyBehavior  a owl:Class ;
+  rdfs:label "Unhealthy Behavior  "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/ExcessiveFriction 
+ener-fail:ExcessiveFriction  a owl:Class ;
+  rdfs:label "Excessive Friction  "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/Leakage   
+ener-fail:Leakage  a owl:Class ;
+  rdfs:label "Leakage "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/TorqueIncrease 
+ener-fail:TorqueIncrease  a owl:Class ;
+  rdfs:label "Torque Increase "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/ShaftTorqueIncrease 
+ener-fail:ShaftTorqueIncrease  a owl:Class ;
+  rdfs:label "Torque Increase "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:TorqueIncrease ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/FlowRateReduction 
+ener-fail:FlowRateReduction  a owl:Class ;
+  rdfs:label "Flow Rate Reduction "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+####  <https://w3id.org/enershare/failure/LowPrecharge 
+ener-fail:LowPrecharge  a owl:Class ;
+  rdfs:label "Low Precharge "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/OverHeating 
+ener-fail:OverHeating  a owl:Class ;
+  rdfs:label "Over Heating"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+
+###  <https://w3id.org/enershare/failure/LoosenessFailure 
+ener-fail:LoosenessFailure  a owl:Class ;
+  rdfs:label "Looseness Failure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/ImbalanceFailure 
+ener-fail:ImbalanceFailure  a owl:Class ;
+  rdfs:label "Imbalance Failure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/OverLoad 
+ener-fail:OverLoad  a owl:Class ;
+  rdfs:label "Over Load"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/UnderLoad 
+ener-fail:UnderLoad  a owl:Class ;
+  rdfs:label "Under Load"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/NoProduction 
+ener-fail:NoProduction  a owl:Class ;
+  rdfs:label "No Production"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy   ener-fail:FailureAndDamageOntology. 
+
+###  <https://w3id.org/enershare/failure/hasMode 
+ener-fail:hasMode a owl:ObjectProperty  ;
+  rdfs:label "hasMode"@en ;
+  rdfs:comment """"""@en ;
+  owl:inverseOf ener-fail:isModeOf;
+  rdfs:range ener-fail:WorkingMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/isModeOf 
+ener-fail:isModeOf a owl:ObjectProperty  ;
+  rdfs:label "isModeOf"@en ;
+  rdfs:comment """"""@en ;
+  owl:inverseOf ener-fail:hasMode;
+  rdfs:domain ener-fail:WorkingMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasHealthyMode 
+ener-fail:hasHealthyMode a owl:ObjectProperty  ;
+  rdfs:label "has Healthy Mode"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasMode ;
+  rdfs:range ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasFailureMode 
+ener-fail:hasFailureMode a owl:ObjectProperty  ;
+  rdfs:label "has Failure Mode"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasMode ;
+  rdfs:range ener-fail:FailureMode ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasAbnormalConductance 
+ener-fail:hasAbnormalConductance a owl:ObjectProperty  ;
+  rdfs:label "has Abnormal Conductance "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:AbnormalConductancet;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasExcessiveFriction 
+ener-fail:hasExcessiveFriction a owl:ObjectProperty  ;
+  rdfs:label "has Excessive Friction "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:ExcessiveFriction;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasFlowRateReduction 
+ener-fail:hasFlowRateReduction a owl:ObjectProperty  ;
+  rdfs:label "has Flow Rate Reduction"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:FlowRateReduction;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasLeakage 
+ener-fail:hasLeakage a owl:ObjectProperty  ;
+  rdfs:label "has Leakage"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:Leakage;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasLowPrecharge 
+ener-fail:hasLowPrecharge a owl:ObjectProperty  ;
+  rdfs:label "has Low Precharge"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:LowPrecharge;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasTorqueIncrease 
+ener-fail:hasTorqueIncrease a owl:ObjectProperty  ;
+  rdfs:label "has Torque Increase"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasFailureMode  ;
+  rdfs:range ener-fail:TorqueIncrease;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+###  <https://w3id.org/enershare/failure/hasShaftTorqueIncrease 
+ener-fail:hasShaftTorqueIncrease a owl:ObjectProperty  ;
+  rdfs:label "has Shaft Torque Increase"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-fail:hasTorqueIncrease  ;
+  rdfs:range ener-fail:ShaftTorqueIncrease;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-fail:FailureAndDamageOntology.
+
+#######################################
+#   reused concepts                   #
+#######################################  
+
+plt:FailureEvent a owl:Class.
+plt:StatorWinding a owl:Class.
+saref:State a owl:Class.
+
+
+
+#######################################
+#   reused relations                  #
+#######################################
+
+ plt:relatedTo  a owl:ObjectProperty.
+

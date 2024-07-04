@@ -1,0 +1,176 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-rsrc:<https://w3id.org/enershare/energyresource/>.
+@prefix ener-device: <https://w3id.org/enershare/device/>.
+@base <https://w3id.org/enershare/device/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-device:DeviceOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Device Ontology"@en ;
+  dcterms:description "The Enershare Device vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-02-06"^^xsd:date ;
+  dcterms:modified "2024-04-25"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE";
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-device";
+  vann:preferredNamespaceUri <https://w3id.org/enershare/device/> ;  
+  owl:versionIRI <https://w3id.org/enershare/DeviceOntology-1.1> ;
+  owl:versionInfo "v1.0".
+
+
+###  https://w3id.org/enershare/device/FrequencyMeter
+ener-device:FrequencyMeter a owl:Class ;
+  rdfs:label "Frequency Meter"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:Meter; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/HeatFlowMeter
+ener-device:HeatFlowMeter a owl:Class ;
+  rdfs:label "Heat Flow Meter"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:Meter; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/Calorimeter
+ener-device:Calorimeter a owl:Class ;
+  rdfs:label "Calori meter"@en ;
+  rdfs:comment """A calorimeter is a device used for calorimetry, or the process of measuring the heat of chemical reactions or physical changes as well as heat 
+                  capacity. (Source @Wikipedia)"""@en ;
+  rdfs:subClassOf seas:Meter; 
+
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/ElectricitySmartMeter
+ener-device:ElectricitySmartMeter a owl:Class ;
+  rdfs:label "Electricity Smart Meter"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:SmartMeter, seas:ElectricityMeter ; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/PhasorMeasurementUnits
+ener-device:PhasorMeasurementUnits a owl:Class ;
+  rdfs:label "Phasor Measurement Units"@en ;
+  rdfs:comment """A phasor measurement unit (PMU) is a device used to estimate the magnitude and phase angle of an electrical phasor quantity (such as voltage or current)
+                  in the electricity grid using a common time source for synchronization. (Source @Wikipedia)"""@en ;
+  rdfs:subClassOf seas:Meter; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/PowerQualityAnalyser
+ener-device:PowerQualityAnalyser a owl:Class ;
+  rdfs:label "Power Quality Analyser"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:Meter; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/AcousticSensor
+ener-device:AcousticSensor a owl:Class ;
+  rdfs:label "Acoustic Sensor"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf seas:Sensor; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/Oven
+ener-device:Oven a owl:Class ;
+  rdfs:label "Oven"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  owl:equivalentClass dogont:Oven;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/WashingMachine
+ener-device:WashingMachine a owl:Class ;
+  rdfs:label "Washing Machine"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/DishWashingMachine
+ener-device:DishWashingMachine a owl:Class ;
+  rdfs:label "DishWashing Machine"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/Refrigerator
+ener-device:Refrigerator a owl:Class ;
+  rdfs:label "Refrigerator"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/Freezer
+ener-device:Freezer a owl:Class ;
+  rdfs:label "Freezer"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+###  https://w3id.org/enershare/device/RefrigeratorFreezerCombo
+ener-device:RefrigeratorFreezerCombo a owl:Class ;
+  rdfs:label "Refrigerator Freezer Combo"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf saref:Appliance; 
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-device:DeviceOntology.
+
+
+#######################################
+#   reused concepts                   #
+####################################### 
+
+seas:Meter a owl:Class.
+seas:SmartMeter a owl:Class. 
+seas:Sensor a owl:Class. 
+seas:ElectricityMeter a owl:Class.
+saref:Appliance a owl:Class. 

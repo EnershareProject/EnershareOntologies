@@ -1,0 +1,347 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix dco: <https://w3id.org/dco#>.
+@prefix ener-price: <https://w3id.org/enershare/property/>.
+@prefix ener-prop: <https://w3id.org/enershare/property/>.
+@base <https://w3id.org/enershare/price/>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-price:PricePropertyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Price property Ontology"@en ;
+  dcterms:description "The Enershare Price property vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2024-02-06"^^xsd:date ;
+  dcterms:modified "2024-06-26"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-price" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/price/> ;  
+  owl:versionIRI <https://w3id.org/enershare/property/PricePropertyOntology-1.1> ;
+  owl:versionInfo "v1.0" .
+
+
+
+
+
+
+#### https://w3id.org/enershare/price/marginalCost
+ener-price:marginalCost a owl:ObjectProperty  ;
+  rdfs:label "marginal Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology.  
+
+#### https://w3id.org/enershare/price/capitalCost
+ener-price:capitalCost a owl:ObjectProperty  ;
+  rdfs:label "capital Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology. 
+
+#### https://w3id.org/enershare/price/hasChargingSessionCost
+ener-price:hasChargingSessionCost a owl:ObjectProperty  ;
+  rdfs:label "has Charging Session Cost "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:domain seas:ElectricVehicle;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology. 
+
+#### https://w3id.org/enershare/price/expectedCost
+ener-price:expectedCost a owl:ObjectProperty  ;
+  rdfs:label "expected Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasEnergyCostPrice
+ener-price:hasEnergyCostPrice a owl:ObjectProperty  ;
+  rdfs:label "has Energy cost Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology .     
+
+#### https://w3id.org/enershare/price/hasFinalEnergyCostPrice
+ener-price:hasFinalEnergyCostPrice a owl:ObjectProperty  ;
+  rdfs:label "has Final Energy Cost Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-price:hasEnergyCostPrice;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasElectricityPrice
+ener-price:hasElectricityPrice a owl:ObjectProperty  ;
+  rdfs:label "has Electricity Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price ;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasDayAheadPrice
+ener-price:hasDayAheadPrice a owl:ObjectProperty  ;
+  rdfs:label "has Day Ahead Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasCollectiveOperationCost
+ener-price:hasCollectiveOperationCost a owl:ObjectProperty  ;
+  rdfs:label "has Collective Operation Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasIndividualOperationCost
+ener-price:hasIndividualOperationCost a owl:ObjectProperty  ;
+  rdfs:label "has Individual Operation Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology .   
+
+#### https://w3id.org/enershare/price/hasCostSaving
+ener-price:hasCostSaving a owl:ObjectProperty  ;
+  rdfs:label "has Cost Saving "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology .   
+
+#### https://w3id.org/enershare/price/hasEstimatedCostSaving
+ener-price:hasEstimatedCostSaving a owl:ObjectProperty  ;
+  rdfs:label "has Estimated Cost Saving "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasInvestmentCost
+ener-price:hasInvestmentCost a owl:ObjectProperty  ;
+  rdfs:label "has Investment Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:costPrice ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasIndividualInvestmentCost
+ener-price:hasIndividualInvestmentCost a owl:ObjectProperty  ;
+  rdfs:label "has Individual Investment Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-price:hasInvestmentCost ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasCollectiveInvestmentCost
+ener-price:hasCollectiveInvestmentCost a owl:ObjectProperty  ;
+  rdfs:label "has Collective Investment Cost"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-price:hasInvestmentCost ;
+  rdfs:range seas:CostPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasInternalPrice
+ener-price:hasInternalPrice a owl:ObjectProperty  ;
+  rdfs:label "has Internal Price "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasRetaillingPrice
+ener-price:hasRetaillingPrice a owl:ObjectProperty  ;
+  rdfs:label "has Retailling Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasSimulatedPrice
+ener-price:hasSimulatedPrice a owl:ObjectProperty  ;
+  rdfs:label "has Simulated Price "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasSimulatedPrice
+ener-price:hasSimulatedPrice a owl:ObjectProperty  ;
+  rdfs:label "has Transaction Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasMaximumBuyingPrice
+ener-price:hasMaximumBuyingPrice a owl:ObjectProperty  ;
+  rdfs:label "has Maximum Buying Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:buyingPrice;
+  rdfs:range seas:BuyingPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasMinimumBuyingPrice
+ener-price:hasMinimumBuyingPrice a owl:ObjectProperty  ;
+  rdfs:label "has Minimum Buying Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:buyingPrice;
+  rdfs:range seas:BuyingPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasMaximumSellingPrice
+ener-price:hasMaximumSellingPrice a owl:ObjectProperty  ;
+  rdfs:label "has Maximum Selling Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:sellingPrice;
+  rdfs:range seas:SellingPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasMinimumSellingPrice
+ener-price:hasMinimumSellingPrice a owl:ObjectProperty  ;
+  rdfs:label "has Minimum Selling Price"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:sellingPrice;
+  rdfs:range seas:SellingPriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/hasPowerTariff
+ener-price:hasPowerTariff a owl:ObjectProperty  ;
+  rdfs:label "has Power Tariff "@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+#### https://w3id.org/enershare/price/PriceEvaluationRegion
+ener-price:PriceEvaluationRegion a owl:Class ;
+  rdfs:label "PriceEvaluationRegion"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-prop:EvaluationRegion;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-price:PricePropertyOntology . 
+
+
+###  https://w3id.org/enershare/price/hasCapitalExpenditure
+ener-price:hasCapitalExpenditure a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Capital Expenditure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-price:PricePropertyOntology.  
+
+###  https://w3id.org/enershare/price/hasOperationalExpenditure
+ener-price:hasOperationalExpenditure a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Operational Expenditure"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-price:PricePropertyOntology.
+
+
+###  https://w3id.org/enershare/price/hasRevenue
+ener-price:hasRevenue a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Revenue"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-price:PricePropertyOntology.
+
+###  https://w3id.org/enershare/price/hasMarketValue
+ener-price:hasMarketValue a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Market Value"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:price;
+  rdfs:range seas:PriceProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-price:PricePropertyOntology.
+
+
+
+#######################################
+#   reused concepts                   #
+#######################################  
+
+seas:SellingPriceProperty a owl:Class.
+seas:BuyingPriceProperty a owl:Class.
+seas:CostPriceProperty a owl:Class.
+seas:PriceProperty a owl:Class.
+
+ener-prop:EvaluationRegion a owl:Class.
+
+#######################################
+#   reused relations                  #
+#######################################
+
+seas:sellingPrice a owl:ObjectProperty.
+seas:buyingPrice a owl:ObjectProperty.
+seas:price a owl:ObjectProperty.
+seas:costPrice a owl:ObjectProperty.

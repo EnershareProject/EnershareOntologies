@@ -1,0 +1,300 @@
+# Copyright 2020  ENERSHARE Project.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sch: <https://schema.org/>.
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix seas: <https://w3id.org/seas/> .
+@prefix plt: <https://w3id.org/platoon/> .
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-mnt: <https://w3id.org/enershare/maintenance/>.
+@prefix ener-fail: <https://w3id.org/enershare/failure/>.
+@base <https://w3id.org/enershare>.
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+ener-mnt:MaintenanceOntology rdf:type voaf:Vocabulary , owl:Ontology ;
+  dcterms:title "Enershare Maintenance Ontology"@en ;
+  dcterms:description "The Enershare maintenance vocabulary for the  Enershare  project."@en ;
+  dcterms:issued "2023-12-21"^^xsd:date ;
+  dcterms:modified "2023-04-25"^^xsd:date ;
+  dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
+  dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+  vann:preferredNamespacePrefix "ener-mnt" ;
+  vann:preferredNamespaceUri <https://w3id.org/enershare/maintenance/> ;  
+  owl:versionIRI <https://w3id.org/enershare/MaintenanceOntology-1.1> .
+
+
+
+
+### https://w3id.org/enershare/maintenance/Maintenance  
+ener-mnt:Maintenance a owl:Class ;
+  rdfs:label "Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf plt:Event; 
+  owl:equivalentClass plt:Maintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/hasMaintenance 
+ener-mnt:hasMaintenance a owl:ObjectProperty  ;
+  rdfs:label "has Maintenance"@en ;
+  rdfs:comment """"""@en ;
+   owl:inverseOf ener-mnt:isMaintenanceOf;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/isMaintenanceOf 
+ener-mnt:isMaintenanceOf a owl:ObjectProperty  ;
+  rdfs:label "is Maintenance OF"@en ;
+  rdfs:comment """"""@en ;
+  owl:inverseOf ener-mnt:hasMaintenance ;
+  rdfs:domain ener-mnt:Maintenance ;
+  rdfs:range seas:FeatureOfInterest;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/ScheduledMaintenance 
+ener-mnt:ScheduledMaintenance a owl:Class ;
+  rdfs:label "Scheduled Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance, plt:ScheduledEvent; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/hasScheduledMaintenance 
+ener-mnt:hasScheduledMaintenance  a owl:ObjectProperty  ;
+  rdfs:label "has Scheduled Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-mnt:hasMaintenance ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-mnt:ScheduledMaintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/PeriodicMaintenance  
+ener-mnt:PeriodicMaintenance a owl:Class ;
+  rdfs:label "Periodic Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:ScheduledMaintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/MonthlyMaintenance 
+ener-mnt:MonthlyMaintenance a owl:Class ;
+  rdfs:label "Monthly Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:PeriodicMaintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/SemiAnnualMaintenance 
+ener-mnt:SemiAnnualMaintenance a owl:Class ;
+  rdfs:label "SemiAnnualMaintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:PeriodicMaintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/AnnualMaintenance 
+ener-mnt:AnnualMaintenance a owl:Class ;
+  rdfs:label "Annual Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:PeriodicMaintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/TwoYearsMaintenance 
+ener-mnt:TwoYearsMaintenance a owl:Class ;
+  rdfs:label "Two Years Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:PeriodicMaintenance; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/RepairingMaintenance 
+ener-mnt:RepairingMaintenance a owl:Class ;
+  rdfs:label "Repairing Maintenance"@en ;
+  rdfs:comment """The repair maintenance restores (something damaged, faulty, or worn) to a good condition."""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/ReplacementMaintenance 
+ener-mnt:ReplacementMaintenance a owl:Class ;
+  rdfs:label "Replacement Maintenance"@en ;
+  skos:alLabel "Maintenance Exchange";
+  rdfs:comment """Replacement Maintenance consists of Replacement of some damaged piece """@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/DeviceAddingMaintenance 
+ener-mnt:DeviceAddingMaintenance a owl:Class ;
+  rdfs:label "Device Adding Maintenance"@en ;
+  rdfs:comment """Device Adding Maintenance consists of adding device during maintenance."""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/InspectionMaintenance 
+ener-mnt:InspectionMaintenance a owl:Class ;
+  rdfs:label "Inspection Maintenance"@en ;
+  rdfs:comment """Inspection Maintenance consists of inspecting of some compononts  maintenance."""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/ResetMaintenance 
+ener-mnt:ResetMaintenance a owl:Class ;
+  rdfs:label "Reset Maintenance"@en ;
+  rdfs:comment """Inspection Maintenance consists of reset the whole system."""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/UpdatingMaintenance 
+ener-mnt:UpdatingMaintenance a owl:Class ;
+  rdfs:label "Updating Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/ConfigurationMaintenance 
+ener-mnt:ConfigurationMaintenance a owl:Class ;
+  rdfs:label "Configuration Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/CleaningMaintenance 
+ener-mnt:CleaningMaintenance a owl:Class ;
+  rdfs:label "Cleaning Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-mnt:MaintenanceOntology.
+
+
+### https://w3id.org/enershare/maintenance/UnScheduledMaintenance 
+ener-mnt:UnScheduledMaintenance a owl:Class ;
+  rdfs:label "Un Scheduled Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-mnt:Maintenance, plt:UnScheduledEvent; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology .
+
+### https://w3id.org/enershare/maintenance/hasUnScheduledMaintenance 
+ener-mnt:hasUnScheduledMaintenance  a owl:ObjectProperty  ;
+  rdfs:label "has UnScheduled Maintenance"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-mnt:hasMaintenance ;
+  rdfs:domain seas:FeatureOfInterest ;
+  rdfs:range ener-mnt:UnScheduledMaintenance;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/hasPredictiveMaintenance 
+ener-mnt:hasPredictiveMaintenance a owl:ObjectProperty  ;
+  rdfs:label "has Predictive Maintenance"@en ;
+  rdfs:comment """"""@en ;
+   rdfs:subPropertyOf ener-mnt:hasMaintenance ;
+  rdfs:domain  seas:FeatureOfInterest;
+  rdfs:range ener-mnt:Maintenance ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:SystemOntology .   
+
+### https://w3id.org/enershare/maintenance/isToRestore 
+ener-mnt:isToRestore a owl:ObjectProperty  ;
+  rdfs:label "is To Restore"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain ener-mnt:Maintenance ;
+  rdfs:range ener-fail:AbnormalState;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/hasMaintenanceSchedule 
+ener-mnt:hasMaintenanceSchedule a owl:ObjectProperty  ;
+  rdfs:label "has Maintenance Schedule"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf sch:eventSchedule;
+  rdfs:domain ener-mnt:Maintenance ;
+  rdfs:range plt:MaintenanceSchedule;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+ 
+### https://w3id.org/enershare/maintenance/lastDate 
+ener-mnt:lastDate a owl:DatatypeProperty  ;
+  rdfs:label "last date"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range xsd:DateTime;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+
+### https://w3id.org/enershare/maintenance/nextDate 
+ener-mnt:nextDate a owl:DatatypeProperty  ;
+  rdfs:label "next date"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range xsd:DateTime;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mnt:MaintenanceOntology.
+  
+
+#######################################
+#   reused concepts                   #
+#######################################  
+
+plt:Event a owl:Class.
+plt:ScheduledEvent a owl:Class.
+plt:UnScheduledEvent a owl:Class.
+plt:Maintenance a owl:Class.
+plt:ScheduledEvent a owl:Class.
+seas:FeatureOfInterest  a owl:Class.
+sch:eventSchedule a owl:Class.
+
+
+#######################################
+#   reused relations                  #
+#######################################
+
+ plt:relatedTo  a owl:ObjectProperty.
+
