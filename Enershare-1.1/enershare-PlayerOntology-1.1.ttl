@@ -49,7 +49,7 @@ ener-play:PlayerOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Player Ontology"@en ;
   dcterms:description "The Enershare player vocabulary for the  Enershare project."@en ;
   dcterms:issued "2024-02-06"^^xsd:date ;
-  dcterms:modified "2024-04-25"^^xsd:date ;
+  dcterms:modified "2024-07-18"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-play" ;
@@ -60,7 +60,7 @@ ener-play:PlayerOntology rdf:type voaf:Vocabulary , owl:Ontology ;
 
 
 
-###  https://w3id.org/enershare/ChargingPointOperator
+###  https://w3id.org/enershare/player/ChargingPointOperator
 ener-play:ChargingPointOperator  a owl:Class ;
   rdfs:label "Charging Point Operator "@en ;
   rdfs:comment """"""@en ;
@@ -68,7 +68,7 @@ ener-play:ChargingPointOperator  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/providesChargingCostPrice
+###  https://w3id.org/enershare/player/providesChargingCostPrice
 ener-play:providesChargingCostPrice  a owl:ObjectProperty  ;
   rdfs:label "provides Charging Cost Price"@en ;
   rdfs:comment """"""@en ;
@@ -78,7 +78,7 @@ ener-play:providesChargingCostPrice  a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology.  
 
-###  https://w3id.org/enershare/WaterNetworkOperator
+###  https://w3id.org/enershare/player/WaterNetworkOperator
 ener-play:WaterNetworkOperator  a owl:Class ;
   rdfs:label "Water Network Operator   "@en ;
   rdfs:comment """"""@en ;
@@ -86,7 +86,7 @@ ener-play:WaterNetworkOperator  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/Owner
+###  https://w3id.org/enershare/player/Owner
 ener-play:Owner a owl:Class ;
   rdfs:label "Owner "@en ;
   rdfs:comment """"""@en ;
@@ -94,7 +94,7 @@ ener-play:Owner a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/ChargingPointOwner
+###  https://w3id.org/enershare/player/ChargingPointOwner
 ener-play:ChargingPointOwner a owl:Class ;
   rdfs:label "Charging Point Owner "@en ;
   rdfs:comment """"""@en ;
@@ -102,7 +102,7 @@ ener-play:ChargingPointOwner a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/VehicleOwner
+###  https://w3id.org/enershare/player/VehicleOwner
 ener-play:VehicleOwner  a owl:Class ;
   rdfs:label "Vehicle Owner "@en ;
   rdfs:comment """"""@en ;
@@ -110,7 +110,7 @@ ener-play:VehicleOwner  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/HomeOwner
+###  https://w3id.org/enershare/player/HomeOwner
 ener-play:HomeOwner  a owl:Class ;
   rdfs:label "Home Owner "@en ;
   rdfs:comment """"""@en ;
@@ -118,7 +118,7 @@ ener-play:HomeOwner  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology . 
 
-###  https://w3id.org/enershare/DataOwner
+###  https://w3id.org/enershare/player/DataOwner
 ener-play:DataOwner  a owl:Class ;
   rdfs:label "DataOwner "@en ;
   rdfs:comment """"""@en ;
@@ -126,7 +126,7 @@ ener-play:DataOwner  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/Provider
+###  https://w3id.org/enershare/player/Provider
 ener-play:Provider a owl:Class ;
   rdfs:label "Provider "@en ;
   rdfs:comment """"""@en ;
@@ -134,7 +134,7 @@ ener-play:Provider a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/DataProvider
+###  https://w3id.org/enershare/player/DataProvider
 ener-play:DataProvider a owl:Class ;
   rdfs:label "Data Provider "@en ;
   rdfs:comment """"""@en ;
@@ -142,7 +142,7 @@ ener-play:DataProvider a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/HousingProvider
+###  https://w3id.org/enershare/player/HousingProvider
 ener-play:HousingProvider a owl:Class ;
   rdfs:label "Housing Provider "@en ;
   rdfs:comment """"""@en ;
@@ -150,7 +150,7 @@ ener-play:HousingProvider a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/ServiceProvider
+###  https://w3id.org/enershare/player/ServiceProvider
 ener-play:ServiceProvider a owl:Class ;
   rdfs:label "Service Provider "@en ;
   rdfs:comment """"""@en ;
@@ -158,7 +158,7 @@ ener-play:ServiceProvider a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/HealthCareProvider
+###  https://w3id.org/enershare/player/HealthCareProvider
 ener-play:HealthCareProvider a owl:Class ;
   rdfs:label "Health Care Provider  "@en ;
   rdfs:comment """"""@en ; 
@@ -166,7 +166,7 @@ ener-play:HealthCareProvider a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/SeniorCitizen
+###  https://w3id.org/enershare/player/SeniorCitizen
 ener-play:SeniorCitizen a owl:Class ;
   rdfs:label "Senior Citizen "@en ;
   rdfs:comment """"""@en ;
@@ -174,17 +174,15 @@ ener-play:SeniorCitizen a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/Family
+###  https://w3id.org/enershare/player/Family
 ener-play:Family a owl:Class ;
   rdfs:label "Family"@en ;
   rdfs:comment """"""@en ;
   rdfs:subClassOf seas:Player, dul:CollectiveAgent;  
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
-
-
  
-###  https://w3id.org/enershare/SingleWorkerFamily
+###  https://w3id.org/enershare/player/SingleWorkerFamily
 ener-play:SingleWorkerFamily a owl:Class ;
   rdfs:label "Single Worker Family"@en ;
   rdfs:comment """"""@en ;
@@ -192,7 +190,7 @@ ener-play:SingleWorkerFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/SingleJoblessFamily
+###  https://w3id.org/enershare/player/SingleJoblessFamily
 ener-play:SingleJoblessFamily a owl:Class ;
   rdfs:label "Single Jobless Family"@en ;
   rdfs:comment """"""@en ;
@@ -200,7 +198,7 @@ ener-play:SingleJoblessFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/SingleParentFamily
+###  https://w3id.org/enershare/player/SingleParentFamily
 ener-play:SingleParentFamily a owl:Class ;
   rdfs:label "Single Parent Family"@en ;
   rdfs:comment """"""@en ;
@@ -210,7 +208,7 @@ ener-play:SingleParentFamily a owl:Class ;
 
   
 
-###  https://w3id.org/enershare/DualParentFamily
+###  https://w3id.org/enershare/player/DualParentFamily
 ener-play:DualParentFamily a owl:Class ;
   rdfs:label "Dual Parent Family"@en ;
   rdfs:comment """"""@en ;
@@ -218,7 +216,7 @@ ener-play:DualParentFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/SingleParTimeFamily
+###  https://w3id.org/enershare/player/SingleParTimeFamily
 ener-play:SingleParTimeFamily a owl:Class ;
   rdfs:label "Single Par Time Family"@en ;
   rdfs:comment """"""@en ;
@@ -226,7 +224,7 @@ ener-play:SingleParTimeFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/CoupleFamily
+###  https://w3id.org/enershare/player/CoupleFamily
 ener-play:CoupleFamily a owl:Class ;
   rdfs:label "Couple Family"@en ;
   rdfs:comment """"""@en ;
@@ -234,7 +232,7 @@ ener-play:CoupleFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/DualWorkerFamilya
+###  https://w3id.org/enershare/player/DualWorkerFamilya
 ener-play:DualWorkerFamilya  a owl:Class ;
   rdfs:label "Dual Worker Familya"@en ;
   rdfs:comment """"""@en ;
@@ -242,7 +240,7 @@ ener-play:DualWorkerFamilya  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/CoupleFamily
+###  https://w3id.org/enershare/player/CoupleFamily
 ener-play:CoupleFamily a owl:Class ;
   rdfs:label "Couple Family"@en ;
   rdfs:comment """"""@en ;
@@ -250,7 +248,7 @@ ener-play:CoupleFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/DualRetiredFamily
+###  https://w3id.org/enershare/player/DualRetiredFamily
 ener-play:DualRetiredFamily a owl:Class ;
   rdfs:label "Dual Retire Family"@en ;
   rdfs:comment """"""@en ;
@@ -258,7 +256,7 @@ ener-play:DualRetiredFamily a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/SingleRetiredFamily
+###  https://w3id.org/enershare/player/SingleRetiredFamily
 ener-play:SingleRetiredFamily a owl:Class ;
   rdfs:label "Single Retired Family"@en ;
   rdfs:comment """"""@en ;
@@ -268,7 +266,7 @@ ener-play:SingleRetiredFamily a owl:Class ;
 
 
 
-###  https://w3id.org/enershare/ServiceConsumer
+###  https://w3id.org/enershare/player/ServiceConsumer
 ener-play:ServiceConsumer a owl:Class ;
   rdfs:label "Service Consumer "@en ;
   rdfs:comment """"""@en ;
@@ -276,7 +274,7 @@ ener-play:ServiceConsumer a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/DataConsumer
+###  https://w3id.org/enershare/player/DataConsumer
 ener-play:DataConsumer a owl:Class ;
   rdfs:label "Data Consumer "@en ;
   rdfs:comment """"""@en ;
@@ -284,7 +282,7 @@ ener-play:DataConsumer a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyConsumer
+###  https://w3id.org/enershare/player/EnergyConsumer
 ener-play:EnergyConsumer a owl:Class ;
   rdfs:label "Energy Consumer "@en ;
   rdfs:comment """"""@en ;
@@ -292,7 +290,7 @@ ener-play:EnergyConsumer a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/Prosumer
+###  https://w3id.org/enershare/player/Prosumer
 ener-play:Prosumer a owl:Class ;
   rdfs:label "Prosumer "@en ;
   rdfs:comment """"""@en ;
@@ -300,7 +298,7 @@ ener-play:Prosumer a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyProsumer
+###  https://w3id.org/enershare/player/EnergyProsumer
 ener-play:EnergyProsumer a owl:Class ;
   rdfs:label "Energy Prosumer "@en ;
   rdfs:comment """"""@en ;
@@ -308,7 +306,7 @@ ener-play:EnergyProsumer a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .  
 
-###  https://w3id.org/enershare/Trader
+###  https://w3id.org/enershare/player/Trader
 ener-play:Trader a owl:Class ;
   rdfs:label "Trader"@en ;
   rdfs:comment """"""@en ;
@@ -316,7 +314,7 @@ ener-play:Trader a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyTrader
+###  https://w3id.org/enershare/player/EnergyTrader
 ener-play:EnergyTrader a owl:Class ;
   rdfs:label "Energy Trader"@en ;
   rdfs:comment """"""@en ;
@@ -324,7 +322,7 @@ ener-play:EnergyTrader a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyServiceCompany
+###  https://w3id.org/enershare/player/EnergyServiceCompany
 ener-play:EnergyServiceCompany a owl:Class ;
   rdfs:label "Energy Service Company "@en ;
   rdfs:comment """"""@en ;
@@ -332,7 +330,7 @@ ener-play:EnergyServiceCompany a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyManagementSystem
+###  https://w3id.org/enershare/player/EnergyManagementSystem
 ener-play:EnergyManagementSystem a owl:Class ;
   rdfs:label "Energy Management System"@en ;
   rdfs:comment """"""@en ;
@@ -340,7 +338,7 @@ ener-play:EnergyManagementSystem a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/EnergyServiceProviderConnector
+###  https://w3id.org/enershare/player/EnergyServiceProviderConnector
 ener-play:EnergyServiceProviderConnector a owl:Class ;
   rdfs:label "Energy Service Provider Connector"@en ;
   rdfs:comment """"""@en ;
@@ -348,15 +346,49 @@ ener-play:EnergyServiceProviderConnector a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology .
 
-###  https://w3id.org/enershare/market/SmartContract
-ener-mrkt:SmartContract  a owl:Class ;
-  rdfs:label "Smart Contract"@en ;
-  rdfs:comment """"""@en ;
-  rdfs:subClassOf seas:Contract;  
-  vs:term_status "testing" ;
-  rdfs:isDefinedBy ener-play:PlayerOntology .  
 
-###  https://w3id.org/enershare/serves
+###  https://w3id.org/enershare/player/Community
+ener-play:Community a owl:Class ;
+  rdfs:label "Community"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Player, dul:CollectiveAgent;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-play:PlayerOntology .
+
+###  https://w3id.org/enershare/player/EnergyCommunity
+ener-play:EnergyCommunity a owl:Class ;
+  rdfs:label "Energy Community"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-play:Community ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-play:PlayerOntology .
+
+###  https://w3id.org/enershare/player/CitizenEnergyCommunity
+ener-play:CitizenEnergyCommunity a owl:Class ;
+  rdfs:label "Citizen Energy Community"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-play:EnergyCommunity ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-play:PlayerOntology .
+
+###  https://w3id.org/enershare/player/RenewableEnergyCommunity
+ener-play:RenewableEnergyCommunity a owl:Class ;
+  rdfs:label "Renewable Energy Community"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf ener-play:EnergyCommunity ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-play:PlayerOntology .
+
+###  https://w3id.org/enershare/player/serves
+ener-play:hasMinimumNumberOfMembers  a owl:DataTypeProperty  ;
+  rdfs:label "has Minimum Number Of Members"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain ener-play:EnergyCommunity;
+  rdfs:range xsd:integer;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-play:PlayerOntology.
+
+###  https://w3id.org/enershare/player/serves
 ener-play:serves  a owl:ObjectProperty  ;
   rdfs:label "serves"@en ;
   rdfs:comment """"""@en ;
@@ -365,7 +397,7 @@ ener-play:serves  a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology.  
 
-###  https://w3id.org/enershare/worksFor
+###  https://w3id.org/enershare/player/worksFor
 ener-play:worksFor  a owl:ObjectProperty  ;
   rdfs:label "works For"@en ;
   rdfs:comment """"""@en ;
@@ -374,7 +406,7 @@ ener-play:worksFor  a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology.  
  
-###  https://w3id.org/enershare/applies
+###  https://w3id.org/enershare/player/applies
 ener-play:applies  a owl:ObjectProperty  ;
   rdfs:label "applies"@en ;
   rdfs:comment """"""@en ;
@@ -383,7 +415,7 @@ ener-play:applies  a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology.  
 
-###  https://w3id.org/enershare/livesIn
+###  https://w3id.org/enershare/player/livesIn
 ener-play:livesIn  a owl:ObjectProperty  ;
   rdfs:label "lives In"@en ;
   rdfs:comment """"""@en ;
@@ -391,7 +423,7 @@ ener-play:livesIn  a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-play:PlayerOntology.  
 
-###  https://w3id.org/enershare/receives
+###  https://w3id.org/enershare/player/receives
 ener-play:receives  a owl:ObjectProperty  ;
   rdfs:label "receives"@en ;
   rdfs:comment """"""@en ;

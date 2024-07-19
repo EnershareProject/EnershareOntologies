@@ -54,7 +54,7 @@ ener-mrkt:MarketOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Market Ontology"@en ;
   dcterms:description "The Enershare market vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-02-06"^^xsd:date ;
-  dcterms:modified "2024-04-25"^^xsd:date ;
+  dcterms:modified "2024-07-18"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-mrkt" ;
@@ -141,3 +141,10 @@ ener-mrkt:AncillaryServicesMarket  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-mrkt:MarketOntology .
 
+###  https://w3id.org/enershare/market/SmartContract
+ener-mrkt:SmartContract  a owl:Class ;
+  rdfs:label "Smart Contract"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Contract;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-mrkt:MarketOntology . 

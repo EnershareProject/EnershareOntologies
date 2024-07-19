@@ -57,7 +57,7 @@ ener-sys:SystemOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare System Ontology"@en ;
   dcterms:description "The Enershare System vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-01-02"^^xsd:date ;
-  dcterms:modified "2024-06-25"^^xsd:date ;
+  dcterms:modified "2024-07-18"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-sys" ;
@@ -439,6 +439,13 @@ ener-sys:ElectricMobilityPlatform a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-sys:SystemOntology .
 
+###  https://w3id.org/enershare/system/EnergyCommunitySystem
+ ener-sys:EnergyCommunitySystem a owl:Class ;
+  rdfs:label "Energy Community System"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf   seas:System ;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-sys:SystemOntology .
 
 ###  https://w3id.org/enershare/system/PrimarySubstation
  ener-sys:PrimarySubstation a owl:Class ;

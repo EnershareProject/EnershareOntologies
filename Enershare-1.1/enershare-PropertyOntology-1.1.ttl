@@ -56,7 +56,7 @@ ener-prop:PropertyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Property Ontology"@en ;
   dcterms:description "The Enershare Property vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2023-12-19"^^xsd:date ;
-  dcterms:modified "2024-06-26"^^xsd:date ;
+  dcterms:modified "2024-07-18"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-prop" ;
@@ -237,6 +237,33 @@ ener-prop:hasMagnet a owl:ObjectProperty  ;
   rdfs:range ener-prop:MagnetProperty;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology.
+
+###   https://w3id.org/enershare/property/RadiusProperty
+ener-prop:RadiusProperty a owl:Class ;
+  rdfs:label "Radius Property"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Property;  
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###   https://w3id.org/enershare/property/RadiusEvaluation
+ener-prop:RadiusEvaluation a owl:Class ;
+  rdfs:label "Radius Evaluation"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subClassOf seas:Evaluation;  
+  rdfs:subClassOf [ a owl:Restriction ; owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-prop:RadiusProperty] ;
+  owl:equivalentClass [ owl:onProperty seas:evaluationOf ; owl:someValuesFrom ener-prop:RadiusProperty ] ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###   https://w3id.org/enershare/property/phaseCurrent
+ener-prop:hasRadiust a owl:ObjectProperty  ;
+  rdfs:label "has Radius"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:range ener-prop:RadiusProperty ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology.  
 
 ###   https://w3id.org/enershare/property/MomentOfInertiaProperty
 ener-prop:MomentOfInertiaProperty a owl:Class ;
@@ -534,8 +561,8 @@ ener-prop:hasMinimumBatteryEnergyToBeInstalled a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology.  
 
-###   https://w3id.org/enershare/property/hasMaximumBatteryEnergyToCanInstalled
-ener-prop:hasMaximumBatteryEnergyToCanInstalled a owl:ObjectProperty  ;
+###   https://w3id.org/enershare/property/hasMaximumBatteryEnergyCanBeInstalled
+ener-prop:hasMaximumBatteryEnergyCanBeInstalled a owl:ObjectProperty  ;
   rdfs:label "has Maximum Battery Energy Can Be Installed"@en ;
   rdfs:comment """"""@en ;
   rdfs:subPropertyOf seas:hasProperty ;
@@ -543,6 +570,43 @@ ener-prop:hasMaximumBatteryEnergyToCanInstalled a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology. 
 
+###   https://w3id.org/enershare/property/hasTotalBatteryEnergyInstalled
+ener-prop:hasBatteryEnergyInstalled a owl:ObjectProperty  ;
+  rdfs:label "has Battery Energy Installed"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:range seas:ElectricEnergyProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology. 
+
+###   https://w3id.org/enershare/property/hasTotalBatteryEnergyInstalled
+ener-prop:hasTotalBatteryEnergyInstalled a owl:ObjectProperty  ;
+  rdfs:label "has Total Battery Energy Installed"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-prop:hasBatteryEnergyInstalled  ;
+  rdfs:range seas:ElectricEnergyProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology. 
+
+
+
+###   https://w3id.org/enershare/property/hasPVPowerInstalled
+ener-prop:hasPVPowerInstalled a owl:ObjectProperty  ;
+  rdfs:label "has PV Power Installed"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:range seas:ElectricPowerProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology.
+
+###   https://w3id.org/enershare/property/hasTotalPVPowerInstalled
+ener-prop:hasTotalPVPowerInstalled a owl:ObjectProperty  ;
+  rdfs:label "has Total PV Power Installed"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf ener-prop:hasPVPowerInstalled ;
+  rdfs:range seas:ElectricPowerProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology.
 ###   https://w3id.org/enershare/property/hasMinimumPVPowerToBeInstalled
 ener-prop:hasMinimumPVPowerToBeInstalled a owl:ObjectProperty  ;
   rdfs:label "has Minimum PV Power To Be Installed"@en ;
@@ -1091,6 +1155,24 @@ ener-prop:hasOptimalCapacity a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology. 
 
+###   https://w3id.org/enershare/property/hasOptimalSizing
+ener-prop:hasOptimalSizing a owl:ObjectProperty  ;
+  rdfs:label "has Optimal Sizing"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:hasProperty ;
+  rdfs:range seas:Property;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology. 
+
+###   https://w3id.org/enershare/property/hasMaximumDistanceBetweenMembers
+ener-prop:hasMaximumDistanceBetweenMembers a owl:ObjectProperty  ;
+  rdfs:label "has Maximum Distance Between Members"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:length ;
+  rdfs:range seas:LengthProperty;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology. 
+
 ###   https://w3id.org/enershare/property/HydrogenEnergyProductionProperty
   ener-prop:HydrogenEnergyProductionProperty a owl:Class ;
   rdfs:label " Hydrogen Energy Production Property  "@en ;
@@ -1617,7 +1699,7 @@ ener-prop:hasOutletOilPressure a owl:ObjectProperty  ;
   rdfs:comment """"""@en ;
   rdfs:subPropertyOf  plt:hasPressure;
   rdfs:domain seas:System;
-  rdfs:range sseas:PressureProperty;
+  rdfs:range seas:PressureProperty;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology. 
 
@@ -2199,6 +2281,14 @@ ener-prop:hasConstructionYear a owl:DatatypeProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology .
 
+###   https://w3id.org/enershare/property/hasConstructionDate
+ener-prop:hasConstructionDate a owl:DatatypeProperty  ;
+  rdfs:label "has Construction date"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:range xsd:date;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
 ###   https://w3id.org/enershare/property/hasRestorationYear
 ener-prop:hasRestorationYear a owl:DatatypeProperty  ;
   rdfs:label "has Restoration Year"@en ;
@@ -2208,7 +2298,7 @@ ener-prop:hasRestorationYear a owl:DatatypeProperty  ;
   rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 
-###   https://w3id.org/enershare/property/hasRestorationYear
+###   https://w3id.org/enershare/property/hasTechnology
 ener-prop:hasTechnology a owl:DatatypeProperty  ;
   rdfs:label "has Technology"@en ;
   rdfs:comment """"""@en ;
@@ -2298,11 +2388,64 @@ ener-prop:isShared a owl:ObjectProperty , owl:FunctionalProperty ;
   rdfs:label "is Shared"@en ;
   rdfs:comment """is Shared"""@en ;
   rdfs:subPropertyOf seas:hasProperty;
-  rdfs:domain seas:System;
+  rdfs:domain seas:FeatureOfInterest;
   rdfs:range seas:BooleanProperty ;
   vs:term_status "testing";
   rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
+###  https://w3id.org/enershare/property/hasSharingPercentage
+ener-prop:hasSharingPercentage a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Sharing Percentage"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range seas:PercentageProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###  https://w3id.org/enershare/property/hasOwnershipPercentage
+ener-prop:hasOwnershipPercentage a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Ownership Percentage"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:FeatureOfInterest;
+  rdfs:range seas:PercentageProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###  https://w3id.org/enershare/property/hasAverageShowerDuration
+ener-prop:hasAverageShowerDuration a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Average Shower Duration"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:Consumer;
+  rdfs:range time:Duration ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###  https://w3id.org/enershare/property/hasShowerTimeStart
+ener-prop:hasShowerTimeStart a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Shower Time Start"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:domain seas:Consumer;
+  rdfs:range time:Instant ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###  https://w3id.org/enershare/property/electricBackGroundPower
+ener-prop:electricBackGroundPower a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "electric BackGround Power"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:electricPower;
+  rdfs:range seas:ElectricPowerProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+###  https://w3id.org/enershare/property/electricPeakPower
+ener-prop:electricPeakPower a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "electric Peak Power"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:electricPower;
+  rdfs:range seas:ElectricPowerProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
 
 ###  https://w3id.org/enershare/property/hasInstalledCapacity
 ener-prop:hasInstalledCapacity a owl:ObjectProperty , owl:FunctionalProperty ;
@@ -2331,7 +2474,7 @@ ener-prop:hasSupply a owl:ObjectProperty , owl:FunctionalProperty ;
   rdfs:comment """"""@en ;
   rdfs:subPropertyOf seas:power;
   rdfs:domain seas:ElectricPowerSystem;
-  rdfs:range sseas:ElectricEnergyProperty ;
+  rdfs:range seas:ElectricEnergyProperty ;
   vs:term_status "testing";
   rdfs:isDefinedBy ener-prop:PropertyOntology .
 
@@ -2341,16 +2484,42 @@ ener-prop:hasWithdrawal a owl:ObjectProperty , owl:FunctionalProperty ;
   rdfs:comment """"""@en ;
   rdfs:subPropertyOf seas:power;
   rdfs:domain seas:ElectricPowerSystem;
-  rdfs:range sseas:ElectricEnergyProperty ;
+  rdfs:range seas:ElectricEnergyProperty ;
   vs:term_status "testing";
   rdfs:isDefinedBy ener-prop:PropertyOntology .
 
 
+###  https://w3id.org/enershare/property/hasCurtailment
+ener-prop:hasCurtailment a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Curtailment"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:power;
+  rdfs:domain seas:ElectricPowerSystem;
+  rdfs:range plt:EnergyProductionProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
 
-ener-prop:hasCurtailment
-(ener-prop:hasDispatch
+###  https://w3id.org/enershare/property/hasDispatch
+ener-prop:hasDispatch a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Dispatch"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:power;
+  rdfs:domain seas:ElectricPowerSystem;
+  rdfs:range plt:EnergyProductionProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
 
-(ener-prop:hasCapacityFactor
+###  https://w3id.org/enershare/property/hasCapacityFactor
+ener-prop:hasCapacityFactor a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has CapacityFactor"@en ;
+  rdfs:comment """"""@en ;
+  rdfs:subPropertyOf seas:power;
+  rdfs:domain seas:ElectricPowerSystem;
+  rdfs:range plt:PowerFactorProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-prop:PropertyOntology .
+
+
 
 
 #######################################
