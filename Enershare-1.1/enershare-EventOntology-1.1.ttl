@@ -92,27 +92,20 @@ ener-evnt:AlarmCause  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-evnt:EventOntology .
 
-### https://w3id.org/enershare/event/Optimization
-ener-evnt:Optimization  a owl:Class ;
+### https://w3id.org/enershare/event/OptimizationEvent
+ener-evnt:OptimizationEvent  a owl:Class ;
   rdfs:label "Optimization"@en ;
   rdfs:comment """"""@en ;
-  rdfs:subClassOf pep:Procedure;  
+  rdfs:subClassOf plt:Event;  
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-evnt:EventOntology .
 
-### https://w3id.org/enershare/event/Optimization
-ener-evnt:OptimizationProcedure  a owl:Class ;
-  rdfs:label "OptimizationProcedure"@en ;
-  rdfs:comment """"""@en ;
-  rdfs:subClassOf pep:ProcedureExecution;  
-  vs:term_status "testing" ;
-  rdfs:isDefinedBy ener-evnt:EventOntology .
 
 ### https://w3id.org/enershare/event/hasOptimization
 ener-evnt:hasOptimization  a owl:ObjectProperty  ;
   rdfs:label "has Optimization"@en ;
   rdfs:comment """"""@en ;
-  rdfs:range ener-evnt:Optimization ;
+  rdfs:range ener-evnt:OptimizationEvent ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-evnt:EventOntology . 
 
@@ -120,7 +113,7 @@ ener-evnt:hasOptimization  a owl:ObjectProperty  ;
 ener-evnt:MaximizationOfSelfConsumptionOptimization  a owl:Class ;
   rdfs:label "Maximization Of Self Consumption Optimization"@en ;
   rdfs:comment """"""@en ;
-  rdfs:subClassOf ener-evnt:Optimization ;  
+  rdfs:subClassOf ener-evnt:OptimizationEvent ;  
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-evnt:EventOntology .
 

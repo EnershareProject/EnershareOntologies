@@ -109,6 +109,14 @@ ener-sys:ElectricHeater  a owl:Class ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy  ener-sys:SystemOntology . 
 
+###  https://w3id.org/enershare/system/DistrictHeating
+ener-sys:DistrictHeating  a owl:Class ;
+  rdfs:label "District Heating"@en ;
+  rdfs:comment ""@en ;
+  rdfs:subClassOf plt:HeatingSystem; 
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy  ener-sys:SystemOntology . 
+
 
 ###  https://w3id.org/enershare/system/WaterDistributionSystemNetwork
 ener-sys:WaterDistributionSystemNetwork  a owl:Class ;

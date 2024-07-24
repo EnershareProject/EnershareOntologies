@@ -59,7 +59,7 @@ ener-device:DeviceOntology rdf:type voaf:Vocabulary , owl:Ontology ;
 ###  https://w3id.org/enershare/device/FrequencyMeter
 ener-device:FrequencyMeter a owl:Class ;
   rdfs:label "Frequency Meter"@en ;
-  rdfs:comment ""@en ;
+  rdfs:comment """Frequency Meter is meter that is used for measuring frequency."""@en ;
   rdfs:subClassOf seas:Meter; 
   vs:term_status "testing";
   rdfs:isDefinedBy ener-device:DeviceOntology.
@@ -85,7 +85,9 @@ ener-device:Calorimeter a owl:Class ;
 ###  https://w3id.org/enershare/device/ElectricitySmartMeter
 ener-device:ElectricitySmartMeter a owl:Class ;
   rdfs:label "Electricity Smart Meter"@en ;
-  rdfs:comment ""@en ;
+  rdfs:comment """An Electricity Smart Meter is an advanced type of electricity meter that records energy consumption in real-time or near-real-time 
+                  and communicates this information back to the utility company for monitoring and billing purposes. Unlike traditional meters that require manual 
+                  readings, smart meters use digital technology to automatically send usage data via wireless communication networks."""@en ;
   rdfs:subClassOf seas:SmartMeter, seas:ElectricityMeter ; 
   vs:term_status "testing";
   rdfs:isDefinedBy ener-device:DeviceOntology.

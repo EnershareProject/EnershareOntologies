@@ -83,7 +83,7 @@ ener-wind:OnshoreWindFarm a owl:Class;
 ### https://w3id.org/enershare/windturbine/PermanentMagnetGeneratorWindTurbine
 ener-wind:PermanentMagnetGeneratorWindTurbine a owl:Class ;
   rdfs:label "Permanent Magnet Generator Wind Turbine"@en ;
-  rdfs:comment """"""@en ;
+  rdfs:comment """Permanent Magnet Generator Wind Turbine is a  wind turbine that has permanent magnet generator as a subsystem"""@en ;
   rdfs:subClassOf plt:WindTurbine,  
                   [ a owl:Restriction ; owl:onProperty seas:hasSubSystem; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass  ener-wind:PermanentMagnetGenerator ]; 
   owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine [ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:someValuesFrom ener-wind:PermanentMagnetGenerator]) ] ;                 
@@ -95,7 +95,7 @@ ener-wind:PermanentMagnetGeneratorWindTurbine a owl:Class ;
 ### https://w3id.org/enershare/windturbine/DoubleFedInductionGeneratorWindTurbine
 ener-wind:DoubleFedInductionGeneratorWindTurbine a owl:Class ;
   rdfs:label "Double Fed Induction Generator Wind Turbine"@en ;
-  rdfs:comment """"""@en ;
+  rdfs:comment """Double Fed Induction Generator Wind Turbine is a  wind turbine that has Double Fed Induction Generator as a subsystem"""@en ;
   rdfs:subClassOf plt:WindTurbine,  
                   [ a owl:Restriction ; owl:onProperty seas:hasSubSystem; owl:someValuesFrom plt:DoubleFedInductionGenerator ];  
   owl:equivalentClass [ owl:intersectionOf ( plt:WindTurbine [ rdf:type owl:Restriction ; owl:onProperty seas:hasSubSystem ; owl:someValuesFrom plt:DoubleFedInductionGenerator]) ] ;                
