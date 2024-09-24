@@ -159,6 +159,26 @@ ener-bldg:hasHeatInstallationSystem a owl:ObjectProperty , owl:FunctionalPropert
   vs:term_status "testing";
   rdfs:isDefinedBy ener-bldg:BuildingOntology.
 
+### https://w3id.org/enershare/building/hasCoolingSystem
+ener-bldg:hasCoolingSystem a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Cooling System"@en ;
+  rdfs:comment """has Cooling System relates the building to the boolean to indicate if the building is equipped with cooling system."""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.  
+
+### https://w3id.org/enershare/building/hasMicroGenerationSystem 
+ener-bldg:hasMicroGenerationSystem a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "has Micro Generation System" @en ;
+  rdfs:comment """has Micro Generation System relates the building to the boolean to indicate if the building is equipped with micro generation system."""@en ;
+  rdfs:subPropertyOf seas:hasProperty;
+  rdfs:domain seas:Building;
+  rdfs:range seas:BooleanProperty ;
+  vs:term_status "testing";
+  rdfs:isDefinedBy ener-bldg:BuildingOntology.   
+
 ### https://w3id.org/enershare/building/hasCarryingOutConstructionWorks
 ener-bldg:hasCarryingOutConstructionWorks a owl:ObjectProperty , owl:FunctionalProperty ;
   rdfs:label "has Carrying Out Construction Works"@en ;
