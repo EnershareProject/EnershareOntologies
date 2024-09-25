@@ -24,6 +24,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix pep: <https://w3id.org/pep/> .
 @prefix plt: <https://w3id.org/platoon/> .
+@prefix fiware:<https://uri.fiware.org/ns/data-models#>.
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
@@ -49,7 +50,7 @@ ener-evnt:EventOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare event Ontology"@en ;
   dcterms:description "The Enershare event vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2023-12-21"^^xsd:date ;
-  dcterms:modified "2024-04-22"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-evnt" ;
@@ -122,7 +123,7 @@ ener-evnt:hasMaximizationOfSelfConsumption  a owl:ObjectProperty  ;
   rdfs:label "has Maximization Of Self Consumption"@en ;
   rdfs:comment """"""@en ;
   rdfs:range ener-evnt:MaximizationOfSelfConsumptionOptimization ;
-  rdfs:seeAlso fiware:selfConsumption;
+  rdfs:seeAlso <https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/selfConsumption>;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-evnt:EventOntology . 
 

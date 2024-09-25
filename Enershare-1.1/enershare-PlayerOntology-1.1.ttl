@@ -28,6 +28,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-mrkt: <https://w3id.org/enershare/market>.
 @prefix ener-play: <https://w3id.org/enershare/player/>.
 @base <https://w3id.org/enershare/player/>.
 
@@ -49,7 +50,7 @@ ener-play:PlayerOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Player Ontology"@en ;
   dcterms:description "The Enershare player vocabulary for the  Enershare project."@en ;
   dcterms:issued "2024-02-06"^^xsd:date ;
-  dcterms:modified "2024-07-18"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-play" ;

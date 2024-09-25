@@ -24,6 +24,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
+@prefix sch: <https://schema.org/> .
 
 
 @prefix ener: <https://w3id.org/enershare/>.
@@ -49,7 +50,7 @@ ener-scd:ScheduleOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Schedule Ontology"@en ;
   dcterms:description "The Enershare Schedule vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-03-05"^^xsd:date ;
-  dcterms:modified "2024-03-19"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-scd" ;
@@ -61,8 +62,7 @@ ener-scd:ScheduleOntology rdf:type voaf:Vocabulary , owl:Ontology ;
 ener-scd:ChargingSchedule  a owl:Class ;
   rdfs:label "Charging Scheduled"@en ;
   rdfs:comment """"""@en ;
-  rdfs:subClassOf sch:Schedule ; 
-  rdfs:seeAlso sdm:schedule; 
+  rdfs:subClassOf sch:Schedule ;  
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-scd:ScheduleOntology .
 
@@ -99,7 +99,7 @@ ener-scd:hasBooked  a owl:ObjectProperty  ;
   rdfs:isDefinedBy ener-scd:ScheduleOntology . 
 
 ###  https://w3id.org/enershare/schedule/isBookedTo
-ener-sch:isBookedTo a owl:ObjectProperty  ;
+ener-scd:isBookedTo a owl:ObjectProperty  ;
   rdfs:label "is Booked To"@en ;
   rdfs:comment """"""@en ;
   rdfs:domain ener-scd:ChargingSchedule ;

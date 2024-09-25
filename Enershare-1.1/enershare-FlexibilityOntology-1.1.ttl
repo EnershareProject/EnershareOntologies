@@ -24,7 +24,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix seas: <https://w3id.org/seas/> .
 @prefix plt: <https://w3id.org/platoon/> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix ic-flex: <http://ontology.tno.nl/interconnect/flexibility/>.
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -53,7 +53,7 @@ ener-flex:FlexibilityOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Flexibility Ontology"@en ;
   dcterms:description "The Enershare Flexibility vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-03-01"^^xsd:date ;
-  dcterms:modified "2024-04-24"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-flex" ;

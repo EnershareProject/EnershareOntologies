@@ -28,6 +28,8 @@
 @prefix fiware:<https://uri.fiware.org/ns/data-models#>.
 @prefix ener-rsrc:<https://w3id.org/enershare/energyresource/>.
 @prefix ener-bldg: <https://w3id.org/enershare/building/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 @base <https://w3id.org/enershare/building/>.
 
 voaf:Vocabulary a owl:Class .
@@ -48,7 +50,7 @@ ener-bldg:BuildingyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Building Ontology"@en ;
   dcterms:description "The Enershare Building vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-02-28"^^xsd:date ;
-  dcterms:modified "2024-05-30"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE";
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-bldg";

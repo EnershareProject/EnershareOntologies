@@ -26,10 +26,8 @@
 @prefix pep: <https://w3id.org/pep/> .
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix time: <http://www.w3.org/2006/time#>.
-@prefix saref: <https://w3id.org/saref#> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vsso:<https://www.w3.org/Submission/vsso/#>.
 @prefix ener: <https://w3id.org/enershare/>.
 @prefix ener-dt: <https://w3id.org/enershare/digitaltwin/>.
 @base <https://w3id.org/enershare/digitaltwin/>.
@@ -52,7 +50,7 @@ ener-dt:DigitalTwinOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Digital Twin Ontology"@en ;
   dcterms:description "The Enershare Digital Twin vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-02-26"^^xsd:date ;
-  dcterms:modified "2024-04-25"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-dt" ;

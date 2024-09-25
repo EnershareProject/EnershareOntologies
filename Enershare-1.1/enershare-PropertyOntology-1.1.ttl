@@ -25,7 +25,6 @@
 @prefix seas: <https://w3id.org/seas/> .
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix time: <http://www.w3.org/2006/time#>.
-@prefix saref: <https://w3id.org/saref#> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vsso:<https://www.w3.org/Submission/vsso/#>.
@@ -56,7 +55,7 @@ ener-prop:PropertyOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Property Ontology"@en ;
   dcterms:description "The Enershare Property vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2023-12-19"^^xsd:date ;
-  dcterms:modified "2024-07-18"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-prop" ;
@@ -644,8 +643,6 @@ ener-prop:hasAverageFloorHeight a owl:ObjectProperty  ;
   vs:term_status "testing" ;
   rdfs:isDefinedBy ener-prop:PropertyOntology.
 
-
-
 ###   https://w3id.org/enershare/property/NaturalGasEnergyProperty
   ener-prop:NaturalGasEnergyProperty a owl:Class ;
   rdfs:label " Natural Gas Energy Property  "@en ;
@@ -682,7 +679,7 @@ ener-prop:consumedEnergy a owl:ObjectProperty  ;
   rdfs:range plt:EnergyProperty ;
   rdfs:subPropertyOf seas:hasProperty;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .   
+  rdfs:isDefinedBy ener-prop:PropertyOntology .   
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergy
 ener-prop:consumedNaturalGasEnergy a owl:ObjectProperty  ;
@@ -692,7 +689,7 @@ ener-prop:consumedNaturalGasEnergy a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:consumedEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .   
+  rdfs:isDefinedBy ener-prop:PropertyOntology .   
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyDailyAllocation
 ener-prop:consumedNaturalGasEnergyDailyAllocation a owl:ObjectProperty  ;
@@ -702,7 +699,7 @@ ener-prop:consumedNaturalGasEnergyDailyAllocation a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:consumedNaturalGasEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .  
+  rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyDailyNomination
 ener-prop:consumedNaturalGasEnergyDailyNomination a owl:ObjectProperty  ;
@@ -712,7 +709,7 @@ ener-prop:consumedNaturalGasEnergyDailyNomination a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:consumedNaturalGasEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .  
+  rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyDailyRenomination
 ener-prop:consumedNaturalGasEnergyDailyRenomination a owl:ObjectProperty  ;
@@ -722,7 +719,7 @@ ener-prop:consumedNaturalGasEnergyDailyRenomination a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:consumedNaturalGasEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .  
+  rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 ###  https://w3id.org/enershare/system/consumedEnergyFlow
 ener-prop:consumedEnergyFlow a owl:ObjectProperty  ;
@@ -732,7 +729,7 @@ ener-prop:consumedEnergyFlow a owl:ObjectProperty  ;
   rdfs:range plt:FlowProperty ;
   rdfs:subPropertyOf seas:hasProperty;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .  
+  rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyFlow
 ener-prop:consumedNaturalGasEnergyFlow a owl:ObjectProperty  ;
@@ -742,7 +739,7 @@ ener-prop:consumedNaturalGasEnergyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:consumedEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .   
+  rdfs:isDefinedBy ener-prop:PropertyOntology .   
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyDailyFlow
 ener-prop:consumedNaturalGasEnergyDailyFlow a owl:ObjectProperty  ;
@@ -752,7 +749,7 @@ ener-prop:consumedNaturalGasEnergyDailyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:consumedNaturalGasEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/consumedNaturalGasEnergyHourlyFlow
 ener-prop:consumedNaturalGasEnergyHourlyFlow a owl:ObjectProperty  ;
@@ -762,7 +759,7 @@ ener-prop:consumedNaturalGasEnergyHourlyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:consumedNaturalGasEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredEnergyFlow
 ener-prop:deliveredEnergyFlow a owl:ObjectProperty  ;
@@ -772,7 +769,7 @@ ener-prop:deliveredEnergyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf seas:hasProperty;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyFlow
 ener-prop:deliveredNaturalGasEnergyFlow a owl:ObjectProperty  ;
@@ -782,7 +779,7 @@ ener-prop:deliveredNaturalGasEnergyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:deliveredEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyDailyFlow
 ener-prop:deliveredNaturalGasEnergyDailyFlow a owl:ObjectProperty  ;
@@ -792,7 +789,7 @@ ener-prop:deliveredNaturalGasEnergyDailyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyHourlyFlow
 ener-prop:deliveredNaturalGasEnergyHourlyFlow a owl:ObjectProperty  ;
@@ -802,7 +799,7 @@ ener-prop:deliveredNaturalGasEnergyHourlyFlow a owl:ObjectProperty  ;
   rdfs:range plt:GasFlowProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .  
+  rdfs:isDefinedBy ener-prop:PropertyOntology .  
 
 ###  https://w3id.org/enershare/system/deliveredEnergy
 ener-prop:deliveredEnergy a owl:ObjectProperty  ;
@@ -812,7 +809,7 @@ ener-prop:deliveredEnergy a owl:ObjectProperty  ;
   rdfs:range plt:EnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredEnergyFlow;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergy
 ener-prop:deliveredNaturalGasEnergy a owl:ObjectProperty  ;
@@ -822,7 +819,7 @@ ener-prop:deliveredNaturalGasEnergy a owl:ObjectProperty  ;
   rdfs:range  ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyDaily
 ener-prop:deliveredNaturalGasEnergyDaily a owl:ObjectProperty  ;
@@ -832,7 +829,7 @@ ener-prop:deliveredNaturalGasEnergyDaily a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergy;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyDailyAllocation
 ener-prop:deliveredNaturalGasEnergyDailyAllocation a owl:ObjectProperty  ;
@@ -842,7 +839,7 @@ ener-prop:deliveredNaturalGasEnergyDailyAllocation a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergyDaily;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology . 
+  rdfs:isDefinedBy ener-prop:PropertyOntology . 
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyDailyNomination
 ener-prop:deliveredNaturalGasEnergyDailyNomination a owl:ObjectProperty  ;
@@ -852,7 +849,7 @@ ener-prop:deliveredNaturalGasEnergyDailyNomination a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergyDaily;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .   
+  rdfs:isDefinedBy ener-prop:PropertyOntology .   
 
 ###  https://w3id.org/enershare/system/deliveredNaturalGasEnergyDailyRenomination
 ener-prop:deliveredNaturalGasEnergyDailyRenomination a owl:ObjectProperty  ;
@@ -862,7 +859,7 @@ ener-prop:deliveredNaturalGasEnergyDailyRenomination a owl:ObjectProperty  ;
   rdfs:range ener-prop:NaturalGasEnergyProperty ;
   rdfs:subPropertyOf ener-prop:deliveredNaturalGasEnergyDaily;
   vs:term_status "testing" ;
-  rdfs:isDefinedBy ner-prop:PropertyOntology .     
+  rdfs:isDefinedBy ener-prop:PropertyOntology .     
 
  ###   https://w3id.org/enershare/property/hasDeliveryPressure
 ener-prop:hasDeliveryPressure a owl:ObjectProperty , owl:FunctionalProperty ;
@@ -2592,6 +2589,5 @@ plt:hasPressure a owl:ObjectProperty.
 plt:hasElectricEnergyLoad a owl:ObjectProperty.
 plt:hasElectricEnergyConsumption a owl:ObjectProperty.
 plt:hasEnergyConsumption a owl:ObjectProperty.
-saref:isAboutOf a owl:ObjectProperty.
 dul:hasRegion a owl:ObjectProperty.
 dul:hasRegionDataValue a owl:DatatypeProperty.

@@ -27,6 +27,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vsso:<https://www.w3.org/Submission/vsso/#>.
 @prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-flex: <https://w3id.org/enershare/flexibility/>.
 @prefix ener-prop: <https://w3id.org/enershare/property/>.
 @prefix ener-fc: <https://w3id.org/enershare/forecast/>.
 @base <https://w3id.org/enershare/forecast/>.
@@ -49,7 +50,7 @@ ener-fc:ForecastOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Forecast Ontology"@en ;
   dcterms:description "The Enershare Forecast vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2024-01-22"^^xsd:date ;
-  dcterms:modified "2024-06-03"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-fc" ;

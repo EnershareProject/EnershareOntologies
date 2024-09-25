@@ -22,7 +22,7 @@
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix cc: <http://creativecommons.org/ns#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix s4city: <https://w3id.org/def/saref4city#> .
 @prefix s4bldg: <https://w3id.org/def/saref4bldg#> .
 @prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#> .
@@ -71,15 +71,6 @@ algn:AlignementOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   vann:preferredNamespacePrefix "ener-algn" ;
   vann:preferredNamespaceUri <https://w3id.org/platoon/> ;  
   owl:versionIRI <https://w3id.org/enershare/AlignmentOntology-1.0> ;
- # owl:imports <https://w3id.org/saref> ,   
- #             <https://w3id.org/pep>,          
- #             seas:BuildingEnergyOntology-1.0,
- #             seas:ElectricPowerSystemOntology-1.0,
- #             seas:EvaluationOntology-1.0,
- #             seas:FeatureOfInterestsOntology-1.0,
- #             seas:ForecastingOntology-1.1,
- #             seas:GenericPropertyOntology-1.0;
-
   owl:versionInfo "v1.0" .
 
 
@@ -214,8 +205,7 @@ seas:ElectricPowerSystem  owl:equivalentClass brick:Electrical_System,cim:PowerS
 plt:LightingSystem owl:equivalentClass brick:LightingSystem ,       seas:LightSource, th:LightingSystemResource, semanco:Lighting_System  .
 plt:Transformer owl:equivalentClass s4bldg:Transformer, seas:ElectricPowerTransformer. 
 
-saref:LightingDevice  owl:equivalentClass seas:LightActuator;
-  rdfs:comment  """ can be linked to  plt:ElectricityEnergyConsumptionProperty by the relation plt:hasElectricityEnergyConsumption """ .
+
 
 semanco:PVSystem  a owl:Class ;
   skos:altLabel "Photovoltaic Plant", "Photovoltaic Power Plant", "Photovoltaic System";

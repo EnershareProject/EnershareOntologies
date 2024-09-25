@@ -26,7 +26,7 @@
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix time: <http://www.w3.org/2006/time#>.
 @prefix s4watr: <https://saref.etsi.org/saref4watr/>.
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sch: <https://schema.org/>.

@@ -25,7 +25,7 @@
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix cim: <http://www.iec.ch/TC57/CIM#>.
 @prefix time: <http://www.w3.org/2006/time#>.
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix sdm: <https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/>.
 @prefix ener: <https://w3id.org/enershare/>.
 @prefix ener-fail: <https://w3id.org/enershare/failure/>.

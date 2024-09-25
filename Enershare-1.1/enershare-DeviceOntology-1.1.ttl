@@ -23,7 +23,8 @@
 @prefix cc: <http://creativecommons.org/ns#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix seas: <https://w3id.org/seas/> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix dogont: <http://elite.polito.it/ontologies/dogont.owl#> .
 @prefix ener: <https://w3id.org/enershare/>.
 @prefix ener-rsrc:<https://w3id.org/enershare/energyresource/>.
 @prefix ener-device: <https://w3id.org/enershare/device/>.

@@ -25,11 +25,12 @@
 @prefix seas: <https://w3id.org/seas/> .
 @prefix plt: <https://w3id.org/platoon/> .
 @prefix s4bldg: <https://w3id.org/def/saref4bldg#> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix ener: <https://w3id.org/enershare/>.
+@prefix ener-grid: <https://w3id.org/enershare/grid/>.
 @prefix ener-wind: <https://w3id.org/enershare/windturbine/>.
 @base <https://w3id.org/enershare/windturbine/>.
 
@@ -51,7 +52,7 @@ ener-wind:WindTurbineOntology rdf:type voaf:Vocabulary , owl:Ontology ;
   dcterms:title "Enershare Wind Turbine Ontology"@en ;
   dcterms:description "The Enershare wind turbine vocabulary for the  Enershare  project."@en ;
   dcterms:issued "2023-12-18"^^xsd:date ;
-  dcterms:modified "2024-05-22"^^xsd:date ;
+  dcterms:modified "2024-09-24"^^xsd:date ;
   dcterms:creator "Lynda TEMAL, Sarra BEN ABBES and Oumy SEYE" ;
   dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
   vann:preferredNamespacePrefix "ener-wind" ;
